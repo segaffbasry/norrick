@@ -1,210 +1,123 @@
 import type { Metadata } from "next";
-import {
-  partnerHero,
-  trustedBy,
-  intro,
-  story,
-  features,
-  reach,
-  partnerQuotes,
-  partnerFaq,
-  type Feature,
-} from "@/lib/partnerships";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { FaqSection } from "@/components/sections/FaqSection";
-import { Check } from "@/components/ui/Icons";
+import Link from "next/link";
+import { Faq } from "@/components/ui/Faq";
+import { Film } from "@/components/home/Film";
+import { SceneFx } from "@/components/home/SceneFx";
+import { crafts } from "@/lib/home";
+import { partners, testimonials } from "@/lib/data";
+import { offers, partnerFaq, partnerHero } from "@/lib/partnerships";
+import s from "../home.module.css";
+import c from "../collaborate/collaborate.module.css";
 
 export const metadata: Metadata = {
-  title: "Partnerships | Norrick",
-  description: "Connect your production with proven talent and turn the work into promotional content.",
+  title: "For productions | Norrick",
+  description: "Post a role and hear from filmmakers, actors, animators and crew who want to make the work.",
 };
 
-// Decorative hero composition: floating stat card, avatar tiles and a badge.
-function HeroVisual() {
-  return (
-    <div aria-hidden className="relative mx-auto aspect-square w-full max-w-md">
-      <div className="absolute right-4 top-6 size-28 rounded-pill bg-placeholder" />
-      <div className="absolute bottom-8 right-16 size-32 rounded-pill bg-placeholder" />
-      <Card variant="outline" className="absolute left-0 top-1/3 w-56 p-5 shadow-float">
-        <p className="eyebrow">Roles filled</p>
-        <p className="mt-2 font-display text-[2.5rem] font-medium leading-none">804</p>
-        <p className="mt-2 text-small font-medium text-primary">+55% this month</p>
-      </Card>
-      <Badge tone="soft" className="absolute bottom-24 left-10">
-        Verified crew
-      </Badge>
-    </div>
-  );
-}
+// For productions: a film-led opener, three things partners can do, Mark's own
+// words about hiring here, the companies behind Norrick, and questions.
+export default function PartnershipsPage() {
+  const mark = testimonials.find((t) => t.id === "mark-wilhelm");
+  const crew = crafts.find((x) => x.title === "Crew")!;
 
-function FeatureBlock({ feature, flip }: { feature: Feature; flip: boolean }) {
   return (
-    <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-      <div className={flip ? "md:order-2" : ""}>
-        <h2 className="text-title">{feature.title}</h2>
-        <p className="mt-3 text-lead text-muted">{feature.body}</p>
-        <ul className="mt-6 space-y-3">
-          {feature.points.map((p) => (
-            <li key={p} className="flex items-start gap-3 text-body text-copy">
-              <Check className="mt-1 size-4 shrink-0 text-primary" />
-              {p}
+    <main id="main-content" data-scenes className={s.home}>
+      <SceneFx />
+      <section data-header="dark" className={c.top} aria-labelledby="partners-title">
+        <Film clip={crew.clip} eager className={c.film} />
+        <div className={c.topInner}>
+          <p className={c.label}>{partnerHero.label}</p>
+          <h1 id="partners-title" className={c.wide}>
+            {partnerHero.title} <em>{partnerHero.accent}</em>
+          </h1>
+          <p className={c.lede}>{partnerHero.body}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/signup" className={s.pill}>
+              Post a role for free <span aria-hidden>↗</span>
+            </Link>
+            <Link href="/pricing" className={`${s.pill} ${s.pillLight}`}>
+              See production rooms <span aria-hidden>↗</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className={s.faq} aria-labelledby="offer-title">
+        <div>
+          <p className={s.label} data-rise>
+            What we do together
+          </p>
+          <h2 id="offer-title" className={s.wide} data-lines>
+            <span>Bring the project.</span>
+            <em>We’ll bring the people.</em>
+          </h2>
+        </div>
+        <ul className="divide-y divide-border border-y border-border" data-rise="children">
+          {offers.map((o) => (
+            <li key={o.title} className="py-8">
+              <h3 className="font-display text-[clamp(1.4rem,2vw,2rem)] font-semibold tracking-[-0.02em]">{o.title}</h3>
+              <p className="mt-2 max-w-xl text-lead text-copy">{o.body}</p>
             </li>
           ))}
         </ul>
-      </div>
-      {/* Placeholder visual: swap for a real product still. */}
-      <Card
-        variant="flat"
-        className={`relative flex aspect-[4/3] flex-wrap content-center items-center justify-center gap-3 overflow-hidden !bg-placeholder p-8 ${flip ? "md:order-1" : ""}`}
-      >
-        {feature.badges.map((b) => (
-          <Badge key={b} tone="soft" className="relative !bg-background">
-            {b}
-          </Badge>
-        ))}
-      </Card>
-    </div>
-  );
-}
-
-export default function PartnershipsPage() {
-  return (
-    <main>
-      {/* Hero */}
-      <section className="section-y">
-        <div className="shell">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.2fr_1fr]">
-            <div>
-              <p className="eyebrow">{partnerHero.eyebrow}</p>
-              <h1 className="mt-4 text-hero">{partnerHero.title}</h1>
-              <p className="mt-5 max-w-lg text-lead text-muted">{partnerHero.body}</p>
-              <Button href="#request" className="mt-8">
-                {partnerHero.cta}
-              </Button>
-            </div>
-            <HeroVisual />
-          </div>
-        </div>
       </section>
 
-      {/* Trusted by */}
-      <section aria-label="Trusted by" className="pb-16">
-        <div className="shell">
-          <p className="text-center text-small text-muted">{trustedBy.label}</p>
-          <ul className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-x-10 gap-y-4">
-            {trustedBy.names.map((n) => (
-              <li key={n} className="font-display text-body font-semibold uppercase tracking-[0.05em] text-foreground/45">
-                {n}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Intro */}
-      <section className="section-y pt-0 md:pt-0">
-        <div className="shell text-center">
-          <h2 className="mx-auto max-w-3xl text-hero">{intro.title}</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lead text-muted">{intro.body}</p>
-        </div>
-      </section>
-
-      {/* Success story */}
-      <section className="section-y pt-0 md:pt-0">
-        <div className="shell">
-          <Card className="mx-auto grid max-w-6xl gap-10 p-8 md:grid-cols-2 md:p-12">
-            <div>
-              <p className="eyebrow text-primary">{story.eyebrow}</p>
-              <h2 className="mt-3 text-title">{story.title}</h2>
-              <figure className="mt-8">
-                <blockquote className="font-display text-lead">&ldquo;{story.quote}&rdquo;</blockquote>
-                <figcaption className="mt-4">
-                  <span className="block font-display text-body font-semibold">{story.name}</span>
-                  <span className="text-small text-muted">{story.role}</span>
-                </figcaption>
-              </figure>
-            </div>
-            <dl className="grid content-center gap-8">
-              {story.stats.map((s) => (
-                <div key={s.label} className="border-b border-border pb-6 last:border-0 last:pb-0">
-                  <dd className="font-display text-[3rem] font-medium leading-none">{s.value}</dd>
-                  <dt className="mt-2 text-body text-muted">{s.label}</dt>
-                </div>
-              ))}
-            </dl>
-          </Card>
-        </div>
-      </section>
-
-      {/* Feature blocks */}
-      <section className="section-y pt-0 md:pt-0">
-        <div className="shell">
-          <div className="mx-auto max-w-6xl space-y-20 md:space-y-28">
-            {features.map((f, i) => (
-              <FeatureBlock key={f.title} feature={f} flip={i % 2 === 1} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Reach stats */}
-      <section className="section-y pt-0 md:pt-0">
-        <div className="shell">
-          <dl className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
-            {reach.map((r) => (
-              <Card key={r.label} variant="outline" className="p-8">
-                <dd className="font-display text-[3rem] font-medium leading-none text-primary">{r.value}</dd>
-                <dt className="mt-2 text-body text-muted">{r.label}</dt>
-              </Card>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* Partner quotes */}
-      <section className="section-y pt-0 md:pt-0">
-        <div className="shell">
-          <h2 className="mx-auto max-w-3xl text-center text-hero">
-            Partnerships that fuel forward-thinking productions
+      {mark && (
+        <section className={s.voices} aria-labelledby="proof-title">
+          <p className={s.label} data-rise>
+            From someone who hires here
+          </p>
+          <h2 id="proof-title" className="sr-only">
+            What a production says
           </h2>
-          <ul className="mx-auto mt-10 grid max-w-6xl gap-4 md:grid-cols-2">
-            {partnerQuotes.map((q) => (
-              <li key={q.id}>
-                <Card as="figure" className="flex h-full flex-col justify-between gap-8 p-8">
-                  <blockquote className="font-display text-lead text-foreground">&ldquo;{q.quote}&rdquo;</blockquote>
-                  <div>
-                    <dl className="mb-6 flex gap-10">
-                      {q.stats.map((s) => (
-                        <div key={s.label}>
-                          <dd className="font-display text-[2rem] font-medium leading-none">{s.value}</dd>
-                          <dt className="mt-1 text-small text-muted">{s.label}</dt>
-                        </div>
-                      ))}
-                    </dl>
-                    <figcaption>
-                      <span className="block font-display text-body font-semibold">{q.name}</span>
-                      <span className="text-small text-muted">{q.role}</span>
-                    </figcaption>
-                  </div>
-                </Card>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      <FaqSection items={partnerFaq} className="section-y pt-0 md:pt-0" />
+          <figure className={`${s.quote} mt-10 max-w-4xl`} data-rise>
+            <span className={s.quoteMark} aria-hidden>
+              “
+            </span>
+            <blockquote className="!text-[clamp(1.6rem,3vw,3rem)]">{mark.quote}</blockquote>
+            <figcaption>
+              <span className={s.initials} aria-hidden>
+                MW
+              </span>
+              <span>
+                <strong>{mark.name}</strong>
+                <small>{mark.role}</small>
+              </span>
+            </figcaption>
+          </figure>
+        </section>
+      )}
 
-      {/* Final CTA */}
-      <section id="request" className="section-y pt-0 md:pt-0">
-        <div className="shell">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-card bg-primary p-8 text-primary-foreground md:flex-row md:items-center md:p-12">
-            <h2 className="max-w-xl text-hero">Connect with the creative current on Norrick</h2>
-            <Button href="#" className="!border-background !bg-background !text-primary hover:!bg-primary-soft">
-              Request partnership
-            </Button>
-          </div>
+      <section className="px-[clamp(20px,5.5vw,96px)] py-16" aria-label="Partners">
+        <p className={`${s.label} text-muted`}>In good company</p>
+        <ul className="mt-6 flex flex-wrap items-center gap-x-12 gap-y-6">
+          {partners.map((p) => (
+            <li key={p.name}>
+              <a href={p.href} target="_blank" rel="noopener noreferrer" className="opacity-70 transition-opacity hover:opacity-100">
+                {p.logo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={p.logo} alt={p.name} className="h-5 w-auto brightness-0 sm:h-6" />
+                ) : (
+                  p.name
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className={s.faq} aria-labelledby="partner-faq-title">
+        <div>
+          <p className={s.label} data-rise>
+            Before we talk
+          </p>
+          <h2 id="partner-faq-title" className={s.wide} data-lines>
+            <span>Good</span>
+            <em>questions.</em>
+          </h2>
+        </div>
+        <div data-rise>
+          <Faq items={partnerFaq} />
         </div>
       </section>
     </main>

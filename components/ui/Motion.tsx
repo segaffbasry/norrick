@@ -18,10 +18,12 @@ gsap.registerPlugin(ScrollTrigger);
 // again after 4s if this component never started. So content can never stay
 // invisible. The selectors below MUST match the ones in globals.css.
 // The first screen is animated by CSS instead (see globals.css), so it never waits for JS.
+// Pages whose <main> has `data-scenes` (the homepage) run their own scroll scenes
+// and are skipped here.
 const BLOCKS = [
-  "main > section:not(:first-child) > .shell > *",
-  "main > section:not(:first-child) > div:not(.shell):not(.absolute)",
-  "main > .shell:not(:first-child) > *",
+  "main:not([data-scenes]) > section:not(:first-child) > .shell > *",
+  "main:not([data-scenes]) > section:not(:first-child) > div:not(.shell):not(.absolute)",
+  "main:not([data-scenes]) > .shell:not(:first-child) > *",
 ].join(", ");
 const STAGGER = "[data-stagger] > *";
 
@@ -53,7 +55,7 @@ export function Motion() {
 
       // Photos clipped by a rounded frame: settle from a slight zoom as they
       // scroll in. The first screen does this in CSS instead.
-      gsap.utils.toArray<HTMLImageElement>("main img").forEach((img) => {
+      gsap.utils.toArray<HTMLImageElement>("main:not([data-scenes]) img").forEach((img) => {
         // The nearest ancestor (up to 3 levels) that clips the photo is its frame.
         let frame: HTMLElement | null = img.parentElement;
         for (let i = 0; i < 3 && frame && getComputedStyle(frame).overflow !== "hidden"; i++) frame = frame.parentElement;

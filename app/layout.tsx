@@ -1,17 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Archivo, Bebas_Neue, Inter } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { RouteProgress } from "@/components/ui/RouteProgress";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { Motion } from "@/components/ui/Motion";
 
-// Headings: tight, neutral grotesk (stand-in for Contra's licensed GT Standard).
-// Swap this one import to change the heading voice; --font-display picks it up.
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+// Display: Archivo with its width axis, so headlines can run wide and heavy like
+// the Norrick wordmark (Acumin Wide). Accent: Bebas Neue.
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  axes: ["wdth"],
+  display: "swap",
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas-neue",
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
   display: "swap",
 });
 
@@ -25,25 +33,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Norrick",
   description:
-    "Norrick connects filmmakers, actors, animators, and crew. Find your people, make the work.",
+    "A creative home for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
   applicationName: "Norrick",
   openGraph: {
-    title: "Norrick",
+    title: "Welcome to Norrick. Your chapter starts here.",
     description:
-      "Norrick connects filmmakers, actors, animators, and crew. Find your people, make the work.",
+      "A creative home for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Norrick",
+    title: "Welcome to Norrick. Your chapter starts here.",
     description:
-      "Norrick connects filmmakers, actors, animators, and crew. Find your people, make the work.",
+      "A creative home for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
   },
 };
 
 export const viewport: Viewport = {
-  // Keep in sync with --color-background in globals.css.
-  themeColor: "#ffffff",
+  // Norrick brand purple (locked palette: #6a21f2, black, white); matches --color-primary.
+  themeColor: "#6a21f2",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -51,8 +59,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     // suppressHydrationWarning: the script below adds a class to <html> before hydration.
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${interTight.variable} ${inter.variable} h-full`}
+      className={`${archivo.variable} ${bebasNeue.variable} ${inter.variable} h-full`}
     >
       <head>
         {/* Arms the soft appear animations (see components/ui/Motion.tsx) before first paint,

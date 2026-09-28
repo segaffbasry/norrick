@@ -50,7 +50,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[id]">) {
   if (!job) notFound();
 
   return (
-    <main>
+    <main id="main-content">
       {/* Banner */}
       <div className="shell pt-4">
         <div className="relative flex min-h-[8.5rem] items-center gap-4 overflow-hidden rounded-panel bg-primary p-5 text-primary-foreground md:min-h-[10rem] md:gap-6 md:px-8">

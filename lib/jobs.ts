@@ -1,6 +1,6 @@
 import { jobs, roleLabel, type JobPost } from "@/lib/data";
 
-// Job detail content for /jobs/[id]. Placeholder copy; built from the JobPost
+// Job detail content for /jobs/[id]. Sample listings; built from the JobPost
 // list so cards and pages always agree.
 const roleTitles: Record<string, string> = {
   j1: "Lead Actor",
@@ -36,18 +36,18 @@ export function getJob(id: string): JobDetail | null {
     bannerTitle: `Apply to ${job.company}`,
     bannerSubtitle: `Join the team as ${role}`,
     about: [
-      `Placeholder: about ${job.company}. Describe the company, what it makes, and the kind of people it works with.`,
       job.blurb,
+      "This is a sample listing, shown to preview how projects look on Norrick while real posts are connected.",
     ],
     how: [
-      "Placeholder: describe how the role works: the schedule, how projects are staffed, and the expected time commitment.",
-      "Placeholder: describe how applicants are reviewed and what happens after you apply.",
+      "The project lead shares the schedule, how the crew comes together and the time it takes, right in the post.",
+      "You apply with your profile and reel. The team reviews applications and messages the people they’d like to meet.",
     ],
     requirements: [
-      "Placeholder: relevant credits or a reel that shows your best work",
-      "Placeholder: comfort working in fast-paced, collaborative environments",
-      "Placeholder: availability for the production dates",
-      "Placeholder: clear, friendly communication with the whole team",
+      "A reel or credits that show your best work",
+      "Comfortable working in a fast-moving, collaborative crew",
+      "Available for the production dates",
+      "Clear, friendly communication with the whole team",
     ],
     tags: [role, ...job.roles.map(roleLabel), ...job.categories.split(",").map((t) => t.trim())],
     info: ["Fluent in English", `${job.openRoles} open ${job.openRoles === 1 ? "role" : "roles"}`],

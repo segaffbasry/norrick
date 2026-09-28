@@ -22,7 +22,7 @@ const p = (text: string, style?: "plain" | "emphasis" | "caps"): Block => ({ typ
 const ul = (...items: string[]): Block => ({ type: "ul", items });
 
 export const draftNotice =
-  "Draft: this text is a placeholder and has not been reviewed by a lawyer. Replace the [bracketed] items and have it reviewed before launch.";
+  "Draft for review: this text has not yet been reviewed by a lawyer and may change before launch.";
 
 export const terms: LegalDoc = {
   title: "Terms of Service",

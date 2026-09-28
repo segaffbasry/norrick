@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { proQuotes, pricingFaq, pricingHero, summaryCards } from "@/lib/pricing";
+import { pricingFaq, pricingHero, summaryCards } from "@/lib/pricing";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { CompareTable } from "@/components/sections/CompareTable";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <main>
+    <main id="main-content">
       <section className="section-y pb-0 md:pb-0">
         <div className="shell">
           <div className="mx-auto max-w-[88rem]">
@@ -66,7 +66,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <Testimonials title="Why productions love us" subtitle="Hear from our customers" items={proQuotes} />
+      <Testimonials title="The people make the place" subtitle="In our community’s own words" />
 
       <FaqSection items={pricingFaq} className="section-y pt-0 md:pt-0" />
 

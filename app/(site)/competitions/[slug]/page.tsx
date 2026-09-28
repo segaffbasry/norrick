@@ -34,7 +34,7 @@ export default async function CompetitionPage({ params }: PageProps<"/competitio
   if (!c) notFound();
 
   return (
-    <main>
+    <main id="main-content">
       <div className="shell py-8 md:py-12">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10">
           {/* Main column */}

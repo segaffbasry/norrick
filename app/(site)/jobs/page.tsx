@@ -13,15 +13,16 @@ export default async function JobsPage({ searchParams }: PageProps<"/jobs">) {
   const initialRole = roles.find((r) => r.id === role)?.id ?? "all";
 
   return (
-    <main>
+    <main id="main-content">
       <section className="section-y">
         <div className="shell">
           <p className="eyebrow">Jobs</p>
           <h1 className="mt-3 text-hero">Find jobs</h1>
           <p className="mt-3 max-w-2xl text-lead text-muted">
-            Placeholder: productions hiring now. Apply directly, no cold job board.
+            Find a story to be part of. Explore roles for filmmakers, actors, animators and crew.
           </p>
 
+          <p className="mt-6 border-l-2 border-primary pl-4 text-sm text-muted">Work in progress: these are sample opportunities, not live listings. Applications are not connected yet.</p>
           <div className="mt-10">
             <JobDirectory initialRole={initialRole} />
           </div>

@@ -36,7 +36,7 @@ function Blocks({ blocks }: { blocks: Block[] }) {
 // intro paragraphs, then numbered sections. One readable column, no TOC.
 export function LegalPage({ doc }: { doc: LegalDoc }) {
   return (
-    <main>
+    <main id="main-content">
       <div className="shell py-12 md:py-20">
         <div className="max-w-4xl">
           <h1 className="text-[clamp(3rem,1.2rem+6.5vw,6rem)] font-normal leading-[1] tracking-[-0.04em]">{doc.title}</h1>

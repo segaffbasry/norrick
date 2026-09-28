@@ -1,0 +1,51 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  box-shadow: 0 1px 0 var(--color-border);
+  transition: background-color .25s, color .25s, box-shadow .25s;
+}
+.overHero { margin-bottom: -80px; }
+.header[data-tone="overlay"] {
+  color: white;
+  background: transparent;
+  box-shadow: none;
+}
+.inner { display: flex; height: 80px; align-items: center; gap: 24px; }
+.logo { flex-shrink: 0; color: var(--color-primary); }
+.header[data-tone="overlay"] .logo,
+.header[data-tone="dark"] .logo { color: white; }
+.header[data-tone="dark"] {
+  color: white;
+  background: #000;
+  box-shadow: 0 1px 0 rgb(255 255 255 / .1);
+}
+.header[data-tone="dark"] .join:hover { background: white; color: var(--color-ink); }
+.navigation { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.navLink { padding: 12px; font-size: 16px; font-weight: 500; transition: opacity .2s; }
+.navLink:hover { opacity: .65; }
+.navLink[aria-current="page"] { color: var(--color-primary); }
+.divider { height: 26px; width: 1px; margin-inline: 12px; background: currentColor; opacity: .22; }
+.join {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 48px;
+  padding: 10px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color .2s, border-color .2s;
+}
+.join:hover { background: var(--color-foreground); }
+.header[data-tone="overlay"] .join { background: transparent; border-color: rgb(255 255 255 / .65); }
+.header[data-tone="overlay"] .join:hover { background: white; border-color: white; color: var(--color-ink); }
+.menuButton { width: 48px; height: 48px; place-items: center; border: 1px solid currentColor; border-radius: 50%; }
+@media (max-width: 1023px) { .divider { display: none; } .menuButton { display: grid; } }
+@media (max-width: 639px) { .join { display: none; } }

@@ -1,5 +1,5 @@
 // Competitions. Copy, dates, rules and cover art come from umdb.org/competitions.
-// Judges are placeholders until real names exist.
+// Judges are announced by the team; none are listed until they are confirmed.
 
 export interface Competition {
   slug: string;
@@ -110,12 +110,7 @@ export const competitions: Competition[] = [
       poster: "/media/animation-showcase.jpg",
       caption: "A short animation sent in by one of our community animators.",
     },
-    judges: [
-      { name: "Name Surname", role: "Role @ Placeholder Studio" },
-      { name: "Name Surname", role: "Role @ Placeholder Studio" },
-      { name: "Name Surname", role: "Role @ Placeholder Studio" },
-      { name: "Name Surname", role: "Role @ Placeholder Studio" },
-    ],
+    votedNote: "The community votes teams through the early stages. The judges’ panel for the final stages will be announced before team formation opens.",
     faq: [
       { q: "Who can join?", a: "Anyone 18+ with a complete profile. Open worldwide." },
       {

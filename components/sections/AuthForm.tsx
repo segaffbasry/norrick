@@ -45,6 +45,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
   return (
     <div className="flex flex-col justify-center p-8 sm:p-14">
       <h1 className="text-title">{t.title}</h1>
+      <p className="mt-3 text-sm text-muted">Design preview — account creation and sign-in are not available yet.</p>
 
       <Button
         onClick={() => setNotice(true)}
@@ -89,7 +90,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
 
       {notice && (
         <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-primary">
-          Placeholder: authentication is not connected yet.
+          This is a design preview. Sign-in is not available yet, and no account has been created.
         </p>
       )}
 

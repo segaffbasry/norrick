@@ -1,4 +1,5 @@
-// Placeholder content only. Static, no backend. Replace copy as it is finalised.
+// Site content. Static, no backend. Talent and job posts are clearly marked
+// samples (shown under a work-in-progress note) until member listings connect.
 
 export type PersonaId = "filmmakers" | "actors" | "animators" | "crew";
 
@@ -15,58 +16,31 @@ export const personas: Persona[] = [
     id: "filmmakers",
     label: "Filmmakers",
     headline: "Your next crew is already here.",
-    body: "Placeholder copy for directors and producers: find the collaborators who share your ambition and get the project moving.",
+    body: "Find the collaborators who share your ambition and get the project moving.",
     cta: "Assemble your team",
   },
   {
     id: "actors",
     label: "Actors",
     headline: "Get seen by people making things.",
-    body: "Placeholder copy for actors: be discovered for real projects by filmmakers who are ready to shoot.",
+    body: "Be discovered for real projects by filmmakers who are ready to shoot.",
     cta: "Find your next role",
   },
   {
     id: "animators",
     label: "Animators",
     headline: "Bring your worlds to life, together.",
-    body: "Placeholder copy for animators: team up with storytellers and studios that value craft.",
+    body: "Team up with storytellers and studios that value craft.",
     cta: "Show your reel",
   },
   {
     id: "crew",
     label: "Crew",
     headline: "The work happens because of you.",
-    body: "Placeholder copy for crew: cinematographers, editors, sound, and more, connected with productions that need them.",
+    body: "Cinematographers, editors, sound and more, connected with productions that need them.",
     cta: "Get on set",
   },
 ];
-
-// Warm, inviting copy. Grounded in the founder's story: everyone starts with
-// nothing, and the right people around you are what gets you there.
-export const problem = {
-  eyebrow: "Why Norrick",
-  headline: "Everyone starts with nothing. You shouldn't have to start alone.",
-  body: "The right people around you are what gets you there. Norrick helps you find them.",
-  cycle: {
-    label: "How it grows",
-    steps: ["Meet your team", "Finish the work", "Earn your credit"],
-    note: "Every finished project opens the door to the next one.",
-  },
-  points: [
-    {
-      title: "Find your people",
-      body: "Great work starts with the right team. Filmmakers, actors, animators and crew, all in one place, so you can meet the people who fit your project.",
-    },
-    {
-      title: "Get your first credit",
-      body: "Everyone needs a first credit. Join a real production, build your reel, and be seen for what you can do.",
-    },
-    {
-      title: "Finish, and be seen",
-      body: "Finished work deserves an audience. Share what you make with a community that celebrates it, and let it lead to what comes next.",
-    },
-  ],
-};
 
 export interface Project {
   id: string;
@@ -79,92 +53,6 @@ export interface Project {
   likes: number;
   views: number;
 }
-
-export const projects: Project[] = [
-  {
-    id: "p1",
-    title: "Placeholder Title One",
-    format: "Short film",
-    persona: "filmmakers",
-    credit: "Directed by Name Surname",
-    image: "/media/poster-placeholder.svg",
-    creator: "Name Surname",
-    likes: 6,
-    views: 129,
-  },
-  {
-    id: "p2",
-    title: "Placeholder Title Two",
-    format: "Animated short",
-    persona: "animators",
-    credit: "Animated by Name Surname",
-    image: "/media/poster-placeholder.svg",
-    creator: "Name Surname",
-    likes: 18,
-    views: 219,
-  },
-  {
-    id: "p3",
-    title: "Placeholder Title Three",
-    format: "Feature",
-    persona: "actors",
-    credit: "Starring Name Surname",
-    image: "/media/poster-placeholder.svg",
-    creator: "Name Surname",
-    likes: 9,
-    views: 151,
-  },
-  {
-    id: "p4",
-    title: "Placeholder Title Four",
-    format: "Music video",
-    persona: "crew",
-    credit: "DoP Name Surname",
-    image: "/media/poster-placeholder.svg",
-    creator: "Name Surname",
-    likes: 13,
-    views: 113,
-  },
-  {
-    id: "p5",
-    title: "Placeholder Title Five",
-    format: "Documentary",
-    persona: "filmmakers",
-    credit: "Produced by Name Surname",
-    image: "/media/poster-placeholder.svg",
-    creator: "Name Surname",
-    likes: 16,
-    views: 39,
-  },
-  {
-    id: "p6",
-    title: "Placeholder Title Six",
-    format: "Series",
-    persona: "crew",
-    credit: "Edited by Name Surname",
-    image: "/media/poster-placeholder.svg",
-    creator: "Name Surname",
-    likes: 5,
-    views: 44,
-  },
-];
-
-// Stacked "cascade" rows shown right before the FAQ: big title left, one clear
-// line right. Content follows the real plans (production rooms, free profile).
-export const howRows = [
-  {
-    title: "How it works",
-    body: "Join, meet the people who fit your craft, and build together in a production room until the work ships.",
-  },
-  {
-    title: "What you get",
-    body: "A free profile and unlimited applications. Production rooms with tasks, milestones and team chat. A verified badge, and real credits to point at.",
-  },
-  {
-    title: "Who it's for",
-    body: "Filmmakers, actors, animators and crew at any stage, and productions that need real talent, fast.",
-  },
-];
 
 export interface Testimonial {
   id: string;
@@ -189,70 +77,6 @@ export const testimonials: Testimonial[] = [
     quote: "It feels human. There are no follower counts, just connections. It's an equal playing field.",
     name: "Makyla Paquette",
     role: "Creative on Norrick",
-  },
-];
-
-export const finalCta = {
-  headline: "Make something together.",
-  body: "Placeholder closing line inviting people to join the community.",
-  primary: "Join Norrick",
-  secondary: "See how it works",
-};
-
-// --- Discover section (Hero -> section 2): trending, talents, job posts -------
-
-export interface TrendingTopic {
-  id: string;
-  title: string;
-  body: string;
-  stats: { value: string; label: string }[];
-}
-
-export const trending: TrendingTopic[] = [
-  {
-    id: "tr1",
-    title: "Short Film Challenge",
-    body: "Placeholder: submit your film to win the monthly community prize.",
-    stats: [
-      { value: "$5K", label: "Prize" },
-      { value: "6d", label: "Left" },
-    ],
-  },
-  {
-    id: "tr2",
-    title: "Casting Calls",
-    body: "Placeholder: open roles from productions that are ready to shoot this month.",
-    stats: [
-      { value: "786", label: "Actors" },
-      { value: "168", label: "Roles" },
-    ],
-  },
-  {
-    id: "tr3",
-    title: "Animation Jam",
-    body: "Placeholder: team up with writers and sound designers on a 48-hour animated short.",
-    stats: [
-      { value: "24K", label: "Members" },
-      { value: "38K", label: "Posts" },
-    ],
-  },
-  {
-    id: "tr4",
-    title: "Crew Wanted",
-    body: "Placeholder: cinematographers, editors and sound, matched to productions that need them.",
-    stats: [
-      { value: "6.6K", label: "Crew" },
-      { value: "4.6K", label: "Gigs" },
-    ],
-  },
-  {
-    id: "tr5",
-    title: "Festival Season",
-    body: "Placeholder: get your finished work seen by programmers and buyers.",
-    stats: [
-      { value: "2.3K", label: "Entries" },
-      { value: "1.2K", label: "Screenings" },
-    ],
   },
 ];
 
@@ -311,19 +135,6 @@ export interface CraftGroup {
   roles: RoleId[];
 }
 
-export const craftGroups: CraftGroup[] = [
-  { id: "filmmakers", title: "Filmmakers", roles: ["director", "producer", "screenwriter"] },
-  { id: "actors", title: "Actors", roles: ["actor", "voice-actor", "mocap-performer"] },
-  {
-    id: "animators",
-    title: "Animators",
-    roles: ["concept-artist", "3d-modeler", "surfacing-artist", "animatic-editor", "animator", "lighting-artist", "compositor"],
-  },
-  { id: "camera-light", title: "Camera & Light", roles: ["cinematographer", "gaffer"] },
-  { id: "picture-sound", title: "Picture & Sound", roles: ["editor", "colourist", "sound-designer", "composer"] },
-  { id: "design-motion", title: "Design & Motion", roles: ["production-designer", "motion-designer"] },
-];
-
 // --- Talent -------------------------------------------------------------------
 
 export interface Talent {
@@ -342,7 +153,7 @@ export interface Talent {
   stats: { value: string; label: string }[];
 }
 
-// Placeholder locations and follower counts, cycled by talent number.
+// Sample locations and follower counts, cycled by talent number.
 const locations = [
   "Gothenburg, Sweden", "Dallas, USA", "Lagos, Nigeria", "Toronto, Canada",
   "London, UK", "Jakarta, Indonesia", "Berlin, Germany", "Sao Paulo, Brazil",
@@ -359,8 +170,8 @@ function talent(
 ): Talent {
   return {
     id: `ta${n}`,
-    name: "Name Surname",
-    headline: `Placeholder: ${headline}`,
+    name: `Sample profile · ${allRoles.find((r) => r.id === roles[0])!.label}`,
+    headline: headline.charAt(0).toUpperCase() + headline.slice(1),
     persona: allRoles.find((r) => r.id === roles[0])!.craft,
     roles,
     location: locations[n % locations.length],
@@ -416,13 +227,13 @@ export interface JobPost {
 }
 
 export const jobs: JobPost[] = [
-  { id: "j1", company: "Placeholder Pictures", blurb: "Placeholder: we are casting leads and supporting roles for a psychological short set in a coastal town. Shoot dates locked for next month.", categories: "Actors, Casting", persona: "actors", roles: ["actor", "voice-actor"], openRoles: 4 },
-  { id: "j2", company: "Placeholder Studio", blurb: "Placeholder: an animation studio building a hand-drawn series pilot and looking for character animators and background artists.", categories: "Animation, Series", persona: "animators", roles: ["animator", "concept-artist", "lighting-artist"], openRoles: 7 },
-  { id: "j3", company: "Placeholder Films", blurb: "Placeholder: independent feature in pre-production, seeking a director of photography, gaffer, and 1st AC for a 20 day shoot.", categories: "Crew, Feature", persona: "crew", roles: ["cinematographer", "gaffer"], openRoles: 3 },
-  { id: "j4", company: "Placeholder Collective", blurb: "Placeholder: producers wanted for a documentary slate. Experience with festival distribution is a plus.", categories: "Filmmakers, Documentary", persona: "filmmakers", roles: ["producer", "director"], openRoles: 1 },
-  { id: "j5", company: "Placeholder Works", blurb: "Placeholder: music video production hiring an editor and colourist on a fast turnaround.", categories: "Crew, Music video", persona: "crew", roles: ["editor", "colourist"], openRoles: 2 },
-  { id: "j6", company: "Placeholder Lab", blurb: "Placeholder: writer-directors sought to pitch original shorts to a funded anthology.", categories: "Filmmakers, Anthology", persona: "filmmakers", roles: ["screenwriter", "director"], openRoles: 5 },
-  { id: "j7", company: "Placeholder Production Room", blurb: "Placeholder: building a first production room and looking for one person per stage of the pipeline: concept, modelling, surfacing, animatic, animation, lighting and final render.", categories: "Animation, Pipeline", persona: "animators", roles: ["concept-artist", "3d-modeler", "surfacing-artist", "animatic-editor", "animator", "lighting-artist", "compositor"], openRoles: 7 },
+  { id: "j1", company: "Coastal psychological short", blurb: "we are casting leads and supporting roles for a psychological short set in a coastal town. Shoot dates locked for next month.", categories: "Actors, Casting", persona: "actors", roles: ["actor", "voice-actor"], openRoles: 4 },
+  { id: "j2", company: "Hand-drawn series pilot", blurb: "an animation studio building a hand-drawn series pilot and looking for character animators and background artists.", categories: "Animation, Series", persona: "animators", roles: ["animator", "concept-artist", "lighting-artist"], openRoles: 7 },
+  { id: "j3", company: "Independent feature", blurb: "independent feature in pre-production, seeking a director of photography, gaffer, and 1st AC for a 20 day shoot.", categories: "Crew, Feature", persona: "crew", roles: ["cinematographer", "gaffer"], openRoles: 3 },
+  { id: "j4", company: "Documentary slate", blurb: "producers wanted for a documentary slate. Experience with festival distribution is a plus.", categories: "Filmmakers, Documentary", persona: "filmmakers", roles: ["producer", "director"], openRoles: 1 },
+  { id: "j5", company: "Music video", blurb: "music video production hiring an editor and colourist on a fast turnaround.", categories: "Crew, Music video", persona: "crew", roles: ["editor", "colourist"], openRoles: 2 },
+  { id: "j6", company: "Shorts anthology", blurb: "writer-directors sought to pitch original shorts to a funded anthology.", categories: "Filmmakers, Anthology", persona: "filmmakers", roles: ["screenwriter", "director"], openRoles: 5 },
+  { id: "j7", company: "First production room", blurb: "building a first production room and looking for one person per stage of the pipeline: concept, modelling, surfacing, animatic, animation, lighting and final render.", categories: "Animation, Pipeline", persona: "animators", roles: ["concept-artist", "3d-modeler", "surfacing-artist", "animatic-editor", "animator", "lighting-artist", "compositor"], openRoles: 7 },
 ];
 
 // Footer "Main partners" row, from umdb.org "In collaboration with". Logo files
@@ -443,36 +254,12 @@ export const partners: Partner[] = [
 ];
 
 export const homeFaq = [
-  { q: "What is Norrick?", a: "Placeholder answer. Norrick connects filmmakers, actors, animators and crew with each other and with productions." },
-  { q: "Who can join?", a: "Placeholder answer. Anyone making or working on film and animation, at any stage of their career." },
-  { q: "Is it free to join?", a: "Placeholder answer. Creating a profile is free. Explain what paid plans add." },
-  { q: "How do productions find talent?", a: "Placeholder answer. Browse verified talent or post a job and let applicants come to you." },
-  { q: "How do I get verified?", a: "Placeholder answer. Complete a real collaboration and earn a verified badge." },
-  { q: "What happens after we connect?", a: "Placeholder answer. Message, agree the work, and build something that ships." },
+  { q: "What is Norrick?", a: "A creative community for turning ideas into finished work. Norrick connects filmmakers, actors, animators and crew with the people they need to make something together." },
+  { q: "Do I need experience to join?", a: "You can be making your first project or bringing years of experience. There is room for every stage of the journey. Start with your interests, your craft, and what you want to make." },
+  { q: "Can I join without a project?", a: "Yes. You can look for collaborators, explore roles on other projects, or get to know the community while your next idea takes shape." },
+  { q: "Is it free to join?", a: "Creating a profile and applying to roles is free. Paid plans add tools for running productions and working with a larger team. You can compare them on the Pricing page." },
+  { q: "Where should I start?", a: "Head to Collaborate and choose what brings you here: an idea to make, a project to join, or people to meet. We will point you toward the next step." },
 ];
-
-// Homepage hero. Headline draws on the founder's own words ("the place where
-// things that were just an idea in someone's head actually became real").
-// Stat figures come from the About page.
-export const hero = {
-  title: "Where creatives find their people.",
-  /** Phrase inside `title` that gets the underline. */
-  highlight: "find their people",
-  body: "Norrick connects filmmakers, actors, animators and crew with each other and with productions.",
-  // Figures as shown on umdb.org.
-  stats: [
-    { value: "2,100+", label: "Creatives worldwide" },
-    { value: "560+", label: "Active every month" },
-    { value: "Free", label: "To join and apply" },
-  ],
-};
-
-// The earlier full-bleed hero (roles + stats) now closes the page.
-export const closingHero = {
-  title: "Your next project starts here.",
-  body: hero.body,
-  stats: hero.stats,
-};
 
 // "Meet Norrick": the second homepage section (Contra Labs "Meet the ecosystem"
 // layout). Two sides of the platform, from the founder's questionnaire.

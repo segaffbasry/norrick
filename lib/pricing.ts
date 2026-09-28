@@ -146,12 +146,6 @@ export const compareGroups: { title: string; rows: { label: string; values: [Cel
   },
 ];
 
-export const proQuotes = [
-  { id: "q1", quote: "Placeholder quote: the first place we go to reach the film and animation community.", name: "Name Surname", role: "Head of Production @ Placeholder Pictures" },
-  { id: "q2", quote: "Placeholder quote: we can post any role and know we will get relevant applicants.", name: "Name Surname", role: "Casting Director @ Placeholder Studio" },
-  { id: "q3", quote: "Placeholder quote: Norrick helped our crew hiring tremendously.", name: "Name Surname", role: "Founder @ Placeholder Films" },
-];
-
 // Answers are written from the visible pricing only. Confirm wording.
 export const pricingFaq = [
   {

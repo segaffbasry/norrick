@@ -1,12 +1,11 @@
 import { testimonials } from "@/lib/data";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 export interface Quote {
   id: string;
   quote: string;
   name: string;
   role: string;
-  /** Optional portrait. Falls back to a tinted placeholder tile. */
+  /** Optional portrait. Falls back to the member’s initials. */
   photo?: string;
 }
 
@@ -21,7 +20,7 @@ function QuoteCard({ q }: { q: Quote }) {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={q.photo} alt="" className="size-full object-cover" />
           ) : (
-            <ImagePlaceholder className="size-full" />
+            <span aria-hidden className="grid size-full place-items-center bg-primary-soft font-display text-3xl text-primary">{q.name.split(" ").map((part) => part[0]).join("")}</span>
           )}
         </div>
         <blockquote className="font-display text-quote font-medium text-foreground">

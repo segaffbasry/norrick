@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function CompetitionsPage() {
   return (
-    <main>
+    <main id="main-content">
       <section className="section-y">
         <div className="shell">
           <p className="eyebrow">Competitions</p>

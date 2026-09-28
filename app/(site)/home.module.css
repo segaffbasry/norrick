@@ -1,0 +1,971 @@
+/* Homepage. Locked palette only: purple, black, white (and tints of them).
+   Type: Archivo run wide and heavy for statements (echoing the wordmark),
+   Bebas Neue for condensed accents, Inter for reading. */
+
+.home {
+  --gutter: clamp(20px, 5.5vw, 96px);
+  background: var(--color-background);
+  overflow-x: clip;
+}
+
+.wide {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+.home em,
+.accent {
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 56px;
+  padding: 14px 18px 14px 28px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.pill span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.16);
+  font-size: 16px;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.pill:hover {
+  background: #fff;
+  color: var(--color-foreground);
+}
+.pill:hover span {
+  transform: rotate(45deg);
+  background: var(--color-primary-soft);
+}
+.pillLight {
+  background: #fff;
+  color: var(--color-foreground);
+}
+.pillLight span {
+  background: var(--color-primary-soft);
+}
+.pillLight:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid currentColor;
+  font-weight: 500;
+}
+.textLink span {
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.textLink:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* ---------------------------------------------------------------- HERO -- */
+/* Tall section + sticky stage: the scroll scene plays while the stage holds. */
+.hero {
+  position: relative;
+  height: 340svh;
+  background: var(--color-ink);
+  color: #fff;
+}
+.heroStage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.heroFrame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(0% 0% 0% 0% round 0px);
+  will-change: clip-path;
+}
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  /* Keep the film on its own layer from the start, so scrolling never has to
+     re-layer a playing video. */
+  will-change: transform;
+}
+.heroShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 0.55), transparent 22%),
+    linear-gradient(0deg, rgb(0 0 0 / 0.8), transparent 55%),
+    linear-gradient(90deg, rgb(0 0 0 / 0.45), transparent 70%);
+}
+.heroTitle {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: clamp(88px, 13vh, 150px);
+}
+.heroWelcome {
+  font-size: clamp(17px, 1.4vw, 22px);
+  font-weight: 500;
+  margin-bottom: clamp(14px, 2.4vh, 28px);
+}
+.heroWelcome b {
+  font-weight: 500;
+  color: var(--color-primary-light);
+}
+.hero h1 {
+  font-size: clamp(2.9rem, 8.2vw, 9.6rem);
+}
+.hero h1 em {
+  color: var(--color-primary-light);
+  font-size: 1.06em;
+}
+.heroLine {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+.heroLine > span {
+  display: block;
+}
+/* Entrance on first paint: lines rise out of their masks, then the rest fades in. */
+@keyframes lineUp {
+  from {
+    transform: translateY(110%);
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+.heroLine > span {
+  animation: lineUp 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+}
+.heroLine + .heroLine > span {
+  animation-delay: 0.27s;
+}
+.heroWelcome,
+.heroCue {
+  animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.55s backwards;
+}
+.heroCue {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(28px, 5vh, 56px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.75);
+}
+.heroCue i {
+  display: block;
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(currentColor 50%, transparent 50%) 0 0 / 1px 200% ;
+  animation: cue 1.8s linear infinite;
+}
+@keyframes cue {
+  to {
+    background-position: 0 -88px;
+  }
+}
+
+/* The conversation that builds around the film. */
+.thread {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.bubble {
+  position: absolute;
+  top: var(--top);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(22vw, 340px);
+  pointer-events: auto;
+}
+/* Desktop: tucked against the sides of the framed film (inset 31% each side). */
+.bubbleLeft {
+  right: calc(69% + 28px);
+  align-items: flex-end;
+}
+.bubbleRight {
+  left: calc(69% + 28px);
+}
+.bubbleWho {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.6);
+}
+.bubbleWho::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+}
+.bubbleText {
+  display: inline-block;
+  padding: 16px 20px;
+  border-radius: 22px 22px 22px 6px;
+  background: #fff;
+  color: var(--color-foreground);
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.35;
+  text-align: left;
+  box-shadow: 0 20px 40px -20px rgb(0 0 0 / 0.6);
+}
+.bubbleRight .bubbleText {
+  border-radius: 22px 22px 6px 22px;
+  background: var(--color-primary);
+  color: #fff;
+}
+.heroNext {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(24px, 5vh, 56px);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  white-space: nowrap;
+}
+.heroNext p {
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-size: clamp(20px, 1.8vw, 28px);
+}
+:global(html.gsap-ready) .hero [data-hero-bubble],
+:global(html.gsap-ready) .hero [data-hero-next] {
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------------- MEET -- */
+.meet {
+  padding: clamp(96px, 14vw, 200px) var(--gutter) clamp(80px, 10vw, 160px);
+}
+.meetTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  color: var(--color-primary);
+}
+.meet h2 {
+  margin-top: clamp(24px, 4vw, 56px);
+  font-size: clamp(3rem, 10.6vw, 12rem);
+}
+.meet h2 em {
+  color: var(--color-primary);
+}
+.meetGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(40px, 7vw, 120px);
+  align-items: end;
+  margin-top: clamp(48px, 7vw, 110px);
+}
+.meetCopy {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 3rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+.meetAside {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.meetPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 28px;
+  clip-path: inset(0 0 0 0 round 28px);
+}
+.meetPhoto img {
+  object-fit: cover;
+  scale: 1.18;
+}
+.stamp {
+  position: absolute;
+  top: -44px;
+  right: -20px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-size: 26px;
+  line-height: 1;
+}
+.meetPhotoWrap {
+  position: relative;
+}
+
+/* ----------------------------------------------------------------- ARC -- */
+.arc {
+  position: relative;
+  background: var(--color-ink);
+  color: #fff;
+}
+.arcPin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.arcHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  padding: clamp(96px, 13vh, 140px) var(--gutter) clamp(24px, 4vh, 40px);
+}
+.arcHead h2 {
+  font-size: clamp(2.2rem, 5.4vw, 5.6rem);
+}
+.arcHead h2 em {
+  color: var(--color-primary-light);
+}
+.arcHead p {
+  max-width: 300px;
+  color: rgb(255 255 255 / 0.65);
+  line-height: 1.55;
+}
+.arcTrack {
+  flex: 1;
+  display: flex;
+  gap: clamp(16px, 2vw, 32px);
+  padding: 0 var(--gutter) clamp(28px, 5vh, 56px);
+  min-height: 0;
+  width: max-content;
+}
+.chapter {
+  position: relative;
+  flex: none;
+  width: clamp(300px, 46vw, 760px);
+  height: 100%;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #111;
+}
+.chapterVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.chapter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(0 0 0 / 0.78), transparent 58%), linear-gradient(180deg, rgb(0 0 0 / 0.35), transparent 30%);
+}
+.chapterText {
+  position: absolute;
+  z-index: 1;
+  left: clamp(20px, 2.4vw, 36px);
+  right: clamp(20px, 2.4vw, 36px);
+  bottom: clamp(20px, 2.4vw, 36px);
+}
+.chapterText h3 {
+  font-size: clamp(1.7rem, 3vw, 3.2rem);
+}
+.chapterText h3 em {
+  display: block;
+  color: var(--color-primary-light);
+}
+.chapterBubble {
+  position: absolute;
+  z-index: 1;
+  top: clamp(20px, 2.4vw, 36px);
+  right: clamp(20px, 2.4vw, 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: min(78%, 340px);
+}
+.chapterBubble .bubbleText {
+  border-radius: 22px 22px 6px 22px;
+}
+.chapter:nth-child(even) .chapterBubble .bubbleText {
+  background: var(--color-primary);
+  color: #fff;
+}
+.chapterEnd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: clamp(300px, 34vw, 540px);
+  padding: clamp(24px, 3vw, 44px);
+  background: var(--color-primary);
+}
+.chapterEnd::after {
+  display: none;
+}
+.chapterEnd h3 {
+  font-size: clamp(2.2rem, 4.2vw, 4.4rem);
+}
+.chapterEnd h3 em {
+  color: #fff;
+  opacity: 0.85;
+}
+.arcProgress {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: clamp(12px, 2vh, 22px);
+  height: 2px;
+  background: rgb(255 255 255 / 0.14);
+}
+.arcProgress i {
+  display: block;
+  height: 100%;
+  background: var(--color-primary-light);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* -------------------------------------------------------------- CRAFTS -- */
+.crafts {
+  background: var(--color-primary);
+  color: #fff;
+  padding: clamp(80px, 10vw, 150px) 0 clamp(64px, 8vw, 120px);
+  overflow: hidden;
+}
+.marquee {
+  display: flex;
+  width: max-content;
+  font-size: clamp(3.6rem, 11vw, 12rem);
+  line-height: 1;
+  white-space: nowrap;
+  will-change: transform;
+}
+.marquee > span {
+  display: flex;
+  align-items: center;
+  gap: 0.28em;
+  padding-right: 0.28em;
+}
+.marquee em {
+  color: var(--color-primary-light);
+}
+.marqueeOutline {
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(255 255 255 / 0.55);
+}
+.star {
+  display: inline-block;
+  font-size: 0.6em;
+  color: var(--color-primary-light);
+}
+.craftIntro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-top: clamp(56px, 7vw, 110px);
+  padding: 0 var(--gutter);
+}
+.craftIntro p {
+  max-width: 420px;
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.85);
+}
+.craftGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.4vw, 24px);
+  margin-top: clamp(32px, 4vw, 56px);
+  padding: 0 var(--gutter);
+}
+.craft {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #3c1391;
+}
+.craft video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 1.2s var(--ease-out-expo);
+}
+.craft:hover video {
+  scale: 1.06;
+}
+.craft::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(20 6 50 / 0.85), transparent 55%);
+}
+.craftText {
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+.craftText h3 {
+  font-size: clamp(1.4rem, 2vw, 2.1rem);
+}
+.craftText p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgb(255 255 255 / 0.8);
+}
+.craftCredit {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  left: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.45);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------- STORY -- */
+.story {
+  padding: clamp(96px, 12vw, 190px) var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(48px, 8vw, 140px);
+  align-items: center;
+}
+.poster {
+  position: relative;
+}
+.poster img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 40px 80px -40px rgb(0 0 0 / 0.5);
+}
+.poster figcaption {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+.storyCopy .label {
+  color: var(--color-primary);
+}
+.storyCopy h2 {
+  margin-top: 28px;
+  font-size: clamp(2.6rem, 6vw, 6.4rem);
+}
+.storyCopy h2 em {
+  color: var(--color-primary);
+}
+.storyCopy p {
+  max-width: 460px;
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--color-copy);
+}
+.storyCopy .textLink {
+  margin-top: 36px;
+  color: var(--color-foreground);
+}
+
+/* -------------------------------------------------------------- VOICES -- */
+.voices {
+  background: var(--color-surface);
+  padding: clamp(96px, 12vw, 180px) var(--gutter);
+}
+.voices h2 {
+  font-size: clamp(2.6rem, 7vw, 7.4rem);
+}
+.voices h2 em {
+  color: var(--color-primary);
+}
+.voices > .label {
+  color: var(--color-primary);
+}
+.quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  margin-top: clamp(56px, 7vw, 100px);
+}
+.quote {
+  position: relative;
+  padding: clamp(28px, 3.4vw, 52px);
+  border-radius: 32px;
+  background: #fff;
+}
+.quote:nth-child(2) {
+  margin-top: clamp(0px, 8vw, 140px);
+  background: var(--color-ink);
+  color: #fff;
+}
+.quoteMark {
+  display: block;
+  height: 0.55em;
+  font-family: var(--font-accent);
+  font-size: 140px;
+  line-height: 1;
+  color: var(--color-primary);
+}
+.quote:nth-child(2) .quoteMark {
+  color: var(--color-primary-light);
+}
+.quote blockquote {
+  margin-top: 24px;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+}
+.quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 36px;
+}
+.initials {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+.quote strong {
+  display: block;
+  font-weight: 600;
+}
+.quote small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  opacity: 0.65;
+}
+
+/* ----------------------------------------------------------------- FAQ -- */
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(40px, 8vw, 140px);
+  padding: clamp(96px, 11vw, 170px) var(--gutter);
+}
+.faq .label {
+  color: var(--color-primary);
+}
+.faq h2 {
+  margin-top: 24px;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+}
+.faq h2 em {
+  color: var(--color-primary);
+}
+
+/* ------------------------------------------------------------- CLOSING -- */
+.closing {
+  position: relative;
+  height: 290svh;
+  background: var(--color-ink);
+  color: #fff;
+}
+.closingStage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.closingVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Black sheet with white letters, multiplied over the film: the film only
+   shows through the letters. Scaling the sheet flies the camera into them. */
+.knockout {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #000;
+  color: #fff;
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+.knockout p {
+  font-size: clamp(3rem, 12.4vw, 14rem);
+  text-align: center;
+  line-height: 0.84;
+}
+.closingContent {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 var(--gutter);
+  text-align: center;
+  background: radial-gradient(ellipse at center, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.2) 70%);
+}
+.closingContent h2 {
+  font-size: clamp(2.8rem, 8vw, 8.6rem);
+}
+.closingContent h2 em {
+  color: var(--color-primary-light);
+}
+.closingContent p {
+  max-width: 420px;
+  font-size: 18px;
+  color: rgb(255 255 255 / 0.8);
+}
+.closingActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+:global(html.gsap-ready) .closing [data-closing-content] {
+  opacity: 0;
+}
+
+/* ------------------------------------------------------ SMALL SCREENS -- */
+@media (max-width: 899px) {
+  .heroTitle {
+    bottom: 96px;
+  }
+  .bubble {
+    width: auto;
+    left: var(--gutter);
+    right: var(--gutter);
+  }
+  .bubbleRight {
+    left: calc(var(--gutter) + 24px);
+    align-items: flex-end;
+  }
+  .bubbleLeft {
+    right: calc(var(--gutter) + 24px);
+    align-items: flex-start;
+  }
+  .bubbleText {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+  .bubbleWho {
+    display: none;
+  }
+  .bubble:nth-child(4) {
+    display: none;
+  }
+  .heroNext {
+    left: var(--gutter);
+    right: var(--gutter);
+    transform: none;
+    justify-content: space-between;
+    gap: 16px;
+    white-space: normal;
+  }
+  .heroNext p {
+    font-size: 19px;
+  }
+  .heroCue {
+    display: none;
+  }
+  .heroNext .pill {
+    flex: none;
+    gap: 14px;
+    padding-left: 20px;
+  }
+  .meet h2 {
+    font-size: 9.4vw;
+  }
+  .meetTop {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .meetGrid,
+  .story,
+  .faq,
+  .quotes {
+    grid-template-columns: 1fr;
+  }
+  .quote:nth-child(2) {
+    margin-top: 0;
+  }
+  .stamp {
+    width: 100px;
+    height: 100px;
+    font-size: 21px;
+    top: -36px;
+    right: 8px;
+  }
+  .hero {
+    height: 300svh;
+  }
+  .arcPin {
+    position: static;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+  .arcHead {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 96px;
+  }
+  .arcTrack {
+    width: auto;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 80px;
+  }
+  .chapter,
+  .chapterEnd {
+    width: auto;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+  .chapterEnd {
+    aspect-ratio: auto;
+    min-height: 360px;
+    gap: 48px;
+  }
+  .arcProgress {
+    display: none;
+  }
+  .craftIntro {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .craftGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Without motion: nothing is pinned; the conversation sits under the title. */
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    height: auto;
+  }
+  .heroStage {
+    position: static;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 56px;
+  }
+  .heroFrame {
+    position: relative;
+    height: 100svh;
+    min-height: 600px;
+  }
+  .thread {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 var(--gutter);
+  }
+  .bubble,
+  .bubble:nth-child(4) {
+    position: static;
+    display: flex;
+    width: auto;
+  }
+  .heroNext {
+    position: static;
+    transform: none;
+    padding: 0 var(--gutter);
+    justify-content: flex-start;
+  }
+  .heroCue {
+    display: none;
+  }
+  .closing {
+    height: auto;
+  }
+  .arcPin {
+    position: static;
+    height: auto;
+    overflow-x: auto;
+  }
+  .arcTrack {
+    height: 70svh;
+  }
+  .knockout {
+    display: none;
+  }
+}

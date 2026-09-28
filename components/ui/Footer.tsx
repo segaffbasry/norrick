@@ -2,112 +2,28 @@ import Link from "next/link";
 import { partners } from "@/lib/data";
 import { Wordmark } from "@/components/ui/Logo";
 
-// Placeholder link groups. Replace hrefs as real pages exist.
-const columns: { title: string; links: { label: string; href: string }[] }[] = [
-  {
-    title: "For talent",
-    links: [
-      { label: "Explore talent", href: "/talent" },
-      { label: "Explore job posts", href: "/jobs" },
-      { label: "Showcase your reel", href: "/#work" },
-      { label: "Competitions", href: "/competitions" },
-      { label: "Community", href: "/#work" },
-    ],
-  },
-  {
-    title: "For productions",
-    links: [
-      { label: "Overview", href: "/#process" },
-      { label: "Post a job", href: "/login" },
-      { label: "Find crew", href: "/talent" },
-      { label: "Promotional content", href: "/partnerships" },
-      { label: "Pricing", href: "/pricing" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/partnerships#request" },
-      { label: "Partnerships", href: "/partnerships" },
-    ],
-  },
-  {
-    title: "Explore",
-    links: [
-      { label: "Instagram", href: "#" },
-      { label: "YouTube", href: "#" },
-      { label: "LinkedIn", href: "#" },
-      { label: "Discord", href: "#" },
-    ],
-  },
+const columns = [
+  { title: "Find your people", links: [{ label: "Collaborate", href: "/collaborate" }, { label: "Browse talent", href: "/talent" }, { label: "Opportunities", href: "/jobs" }, { label: "Creative challenges", href: "/competitions" }] },
+  { title: "Get to know us", links: [{ label: "Our story", href: "/about" }, { label: "Partnerships", href: "/partnerships" }, { label: "Pricing", href: "/pricing" }, { label: "Join Norrick", href: "/signup" }] },
 ];
 
-// Dark footer: logo + tagline on the left, uppercase-headed link columns on
-// the right, legal row underneath (The Hub-style footer).
 export function Footer() {
   return (
-    <footer className="mt-16 bg-ink text-ink-foreground">
-      <div className="shell py-16 md:py-24">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_2fr] lg:gap-16">
-          <div>
-            <Link href="/" aria-label="Norrick, home" className="inline-flex text-white">
-              <Wordmark className="h-8 w-auto" />
-            </Link>
-            <p className="mt-6 max-w-xs text-lead text-ink-foreground/90">
-              Placeholder: we connect filmmakers, actors, animators, and crew to
-              make the work.
-            </p>
-          </div>
-
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-4">
-            {columns.map((col) => (
-              <div key={col.title}>
-                <h2 className="eyebrow !text-primary-light">{col.title}</h2>
-                <ul className="mt-5 space-y-3">
-                  {col.links.map((l) => (
-                    <li key={l.label}>
-                      <Link href={l.href} className="text-body text-ink-foreground transition-colors hover:text-primary-light">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </nav>
+    <footer className="overflow-hidden bg-ink text-ink-foreground">
+      <div className="mx-auto max-w-[1800px] px-6 pb-8 pt-16 lg:px-[5.5vw] lg:pt-20">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div><p className="max-w-sm font-display text-3xl leading-tight tracking-tight">A home for the ones<br />who create.</p><p className="mt-5 max-w-xs text-sm text-primary-light">Find your people. Make the work.<br />See where it takes you.</p></div>
+          {columns.map((column) => <nav key={column.title} aria-label={column.title}><h2 className="text-[10px] uppercase tracking-[.14em] text-primary-light">{column.title}</h2><ul className="mt-5 space-y-3">{column.links.map((link) => <li key={link.href}><Link href={link.href} className="text-sm hover:text-primary-light">{link.label}</Link></li>)}</ul></nav>)}
         </div>
-
-        {/* Partners: own strip so every logo keeps its proportions, equal height, one line. */}
-        <div className="mt-14 flex flex-col gap-4 border-t border-ink-foreground/15 pt-8 sm:flex-row sm:items-center sm:gap-10">
-          <h2 className="eyebrow shrink-0 !text-primary-light">Main partners</h2>
-          <ul className="flex flex-nowrap items-center gap-x-5 overflow-x-auto sm:gap-x-9 [scrollbar-width:none]">
-            {partners.map((partner) => (
-              <li key={partner.name} className="shrink-0">
-                <a
-                  href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${partner.name} (opens in a new tab)`}
-                  className="inline-flex h-3 items-center font-display text-small font-medium text-ink-foreground opacity-70 transition-opacity hover:opacity-100 sm:h-4"
-                >
-                  {partner.logo ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={partner.logo} alt={partner.name} className="h-full w-auto max-w-none brightness-0 invert" />
-                  ) : (
-                    partner.name
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <div className="mt-14 flex flex-wrap items-center gap-7 border-t border-white/15 pt-7">
+          <p className="text-[10px] uppercase tracking-widest text-primary-light">In good company</p>
+          {partners.map((partner) => <a key={partner.name} href={partner.href} target="_blank" rel="noopener noreferrer" aria-label={`${partner.name} (opens in a new tab)`} className="opacity-65 transition-opacity hover:opacity-100">{partner.logo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={partner.logo} alt={partner.name} className="h-3 w-auto brightness-0 invert sm:h-4" />
+          ) : partner.name}</a>)}
         </div>
-
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-body text-ink-foreground/70">
-          <span>&copy; 2026 Norrick</span>
-          <Link href="/terms" className="hover:text-ink-foreground">Terms</Link>
-          <Link href="/privacy" className="hover:text-ink-foreground">Privacy</Link>
-        </div>
+        <Link href="/" aria-label="Norrick, home" className="mt-16 block text-primary-light"><Wordmark className="h-auto w-full" /></Link>
+        <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-white/15 pt-6 text-[11px] text-primary-light"><span>© {new Date().getFullYear()} Norrick. Make your own story.</span><div className="flex gap-6"><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link></div></div>
       </div>
     </footer>
   );

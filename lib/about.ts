@@ -54,18 +54,18 @@ export const chapters: Chapter[] = [
     body: "In 2020, during the pandemic, we were actors trying to make it. We decided to create our own project to get a demo ready. That project became Love Series, a web series that taught us everything about filmmaking, from production to post. But more importantly, it showed us how hard it is for emerging creatives to break through.",
   },
   {
-    label: "01",
+    label: "The wall",
     title: "The Struggle",
     body: "We hit a wall. We couldn't get the right team together, and distribution felt impossible. No one would take us seriously without credits, but we couldn't get credits without opportunities. It was a vicious cycle. We managed eventually, but the struggle stuck.",
   },
   {
-    label: "02",
+    label: "Failing forward",
     title: "The First Attempt",
     image: { src: "/about/about-event.jpg", alt: "A speaker with a microphone talking with a host at an UntoldCine screening event" },
     body: "Our founder, Malcolm Mokwe, started a streaming platform to combat the distribution problem. It was rough around the edges. Honestly, it was pretty bad. But he launched it anyway, believing in failing forward.",
   },
   {
-    label: "03",
+    label: "The pattern",
     title: "The Realization",
     image: { src: "/about/about-group.jpg", alt: "A group of creatives smiling around a table in a restaurant" },
     body: "We traced the full journey of marketing a creative project. We interviewed countless creatives from universities, film schools, acting programs. The pattern was clear: most creatives graduate without a support system, without connections, without a roadmap. We went deeper. What if we could build the platform we wish we had when we started? That's how we arrived at UMDb.",
@@ -77,7 +77,7 @@ export const chapters: Chapter[] = [
     body: "In November 2025, we launched UMDb (UntoldCine Movie Database), an AI-powered discovery engine for emerging creatives. We hit 1,000+ creatives in less than four months with $0 marketing spend. Pure word of mouth.",
   },
   {
-    label: "Today",
+    label: "Now",
     title: "Today",
     image: { src: "/about/about2.jpg", alt: "Five members of the team laughing together for a group photo" },
     body: "Today, UMDb offers a streaming platform where creatives can showcase their work, alongside a growing community that helps you build projects from the start, with the support of your own peers.",

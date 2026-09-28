@@ -2,39 +2,29 @@
 
 /* ==========================================================================
    NORRICK DESIGN TOKENS
-   --------------------------------------------------------------------------
-   Tailwind v4 has no tailwind.config: `@theme` IS the config. Every token
-   below is a CSS custom property AND a Tailwind utility
-   (--color-primary -> bg-primary / text-primary / border-primary).
-
-   Layout, spacing, radii and type scale are modelled on the Contra projects
-   feed (contra.com/?view=projects): light canvas, ink text, slate secondary
-   text, pill buttons, 16px cards, tight-tracked medium-weight grotesk.
-
-   >>> Purple is now the real brand colour (#6a21f2, read from the logo PDF). <<<
-   The neutrals below are still placeholders until the full Norrick/UMDB
-   palette arrives. Change them here and nothing else.
+   Locked palette, from the Norrick logo sheet: purple #6a21f2, black, white.
+   Every other colour below is a tint or shade of those three, never a new hue.
+   Tailwind v4: each token is a CSS variable and a utility (bg-primary, ...).
    ========================================================================== */
 
 @theme {
-  /* --- Colour (primary is final; neutrals are placeholders) ------------- */
-  --color-background: #ffffff; /* page canvas */
-  --color-surface: #f5f6f9; /* soft panels, tab tracks, tiles */
-  --color-foreground: #14171f; /* ink: headings, primary text */
-  --color-copy: #373f51; /* paragraph text */
-  --color-muted: #677084; /* secondary text, eyebrows */
-  --color-border: #e5e7eb; /* hairlines, chip outlines */
-  --color-primary: #6a21f2; /* brand purple from the Norrick logo PDF: CTAs, key moments */
-  --color-primary-foreground: #ffffff; /* text on primary */
-  --color-primary-soft: #f0e9fe; /* 10% tint of primary for hover / chips */
-  --color-primary-light: #b794f9; /* lighter primary on dark surfaces (footer headings) */
-  --color-ink: #222834; /* dark panels (showcase), inverse surface */
+  --color-background: #ffffff; /* white */
+  --color-surface: #f4f0fc; /* 6% purple on white: soft panels */
+  --color-foreground: #0b0a0d; /* black ink */
+  --color-copy: #38333f; /* black at ~80% on white */
+  --color-muted: #6c6676; /* black at ~60% on white */
+  --color-border: #e5e0ee; /* hairlines */
+  --color-primary: #6a21f2; /* Norrick purple */
+  --color-primary-foreground: #ffffff;
+  --color-primary-soft: #efe7fe; /* 12% purple on white */
+  --color-primary-light: #c3a6fb; /* purple lifted for use on black */
+  --color-ink: #000000; /* logo black: cinematic sections, footer */
   --color-ink-foreground: #ffffff;
-  --color-tile: #eceef3; /* big category cards */
+  --color-tile: #efe9f9;
   --color-placeholder: #e4e6eb; /* flat grey for image placeholders, never tinted */
   --color-placeholder-ink: #a3a9b7; /* icon on placeholders */
 
-  /* --- Type scale (sizes / line-heights / tracking taken from Contra) --- */
+  /* --- Type scale ----------------------------------------------------- */
   --text-hero: clamp(2.5rem, 1.9rem + 2.6vw, 3.625rem); /* 58px desktop */
   --text-hero--line-height: 1.05;
   --text-hero--letter-spacing: -0.01em;
@@ -80,11 +70,10 @@
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Fonts come from next/font (app/layout.tsx). GT Standard (Contra's face) is
-   licensed, so Inter Tight stands in for headings: same neutral, tight grotesk
-   feel. Swap here to change the voice site-wide. */
+/* Fonts are loaded with next/font in app/layout.tsx. */
 @theme inline {
-  --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-accent: var(--font-bebas-neue), "Arial Narrow", ui-sans-serif, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -171,7 +160,7 @@
    SHARED PRIMITIVES
    ========================================================================== */
 
-/* Page gutter + max width (Contra: 1584px max, ~36px side padding). */
+/* Shared page gutter and maximum content width. */
 @utility shell {
   width: 100%;
   max-width: 99rem;
@@ -344,9 +333,13 @@
   }
 }
 
-html.gsap-ready main > section:not(:first-child) > .shell > *,
-html.gsap-ready main > section:not(:first-child) > div:not(.shell):not(.absolute),
-html.gsap-ready main > .shell:not(:first-child) > *,
+html.gsap-ready main:not([data-scenes]) > section:not(:first-child) > .shell > *,
+html.gsap-ready main:not([data-scenes]) > section:not(:first-child) > div:not(.shell):not(.absolute),
+html.gsap-ready main:not([data-scenes]) > .shell:not(:first-child) > *,
 html.gsap-ready [data-stagger] > * {
   opacity: 0;
 }
+
+/* Keyboard access and readable focus on both violet and light surfaces. */
+:focus-visible { outline-color: currentColor; }
+[id] { scroll-margin-top: 100px; }

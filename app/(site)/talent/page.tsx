@@ -13,16 +13,16 @@ export default async function TalentPage({ searchParams }: PageProps<"/talent">)
   const initialRole = roles.find((r) => r.id === role)?.id ?? "all";
 
   return (
-    <main>
+    <main id="main-content">
       <section className="section-y">
         <div className="shell">
           <p className="eyebrow">Talent</p>
           <h1 className="mt-3 text-hero">Browse talent</h1>
           <p className="mt-3 max-w-2xl text-lead text-muted">
-            Placeholder: hand-picked filmmakers, actors, animators and crew,
-            trusted to show up and finish.
+            Find the people who share your curiosity, care about their craft, and want to make something together.
           </p>
 
+          <p className="mt-6 border-l-2 border-primary pl-4 text-sm text-muted">Work in progress: these are sample profiles for exploring the directory. Member profiles are not connected yet.</p>
           <div className="mt-10">
             <TalentDirectory initialRole={initialRole} />
           </div>
