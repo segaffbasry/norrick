@@ -97,7 +97,7 @@ export const competitions: Competition[] = [
       "Community voting decides who advances through the early stages. A judges' panel decides the final stages and the winner. Vote totals reset every stage, so no team carries a lead.",
       "To advance in a community-voted stage, a team must vote on at least 20% of the remaining entries.",
       "Fake accounts, vote buying and bots mean immediate disqualification and permanent removal.",
-      "All visual and audio assets must be original to the team or fully licensed. AI-generated imagery, models or animation are not permitted. AI-assisted cleanup such as denoising, interpolation and stabilisation is allowed.",
+      "All visual and audio assets must be original to the team or fully licensed.",
       "Eliminated teams keep Open Track access to every remaining brief and their production room through the finale. Completed-stage credits are permanent.",
       "A community-voted Audience Award runs alongside the judged final stages.",
       "By entering, the team lets us feature, stream and distribute stage deliverables and the final film on UMDb and UntoldCine.com for promotion. The team keeps ownership of its work.",
@@ -134,10 +134,6 @@ export const competitions: Competition[] = [
         a: "You are not locked out. Eliminated teams keep Open Track access, so you still get every remaining stage's brief and keep your production room through the finale. Any stage you completed stays credited to you permanently.",
       },
       { q: "Is there anything for teams that don't win?", a: "Yes. An Audience Award, voted by the community, runs alongside the judged final stages." },
-      {
-        q: "Can I use AI tools?",
-        a: "AI-generated imagery, models or animation are not permitted. All visual and audio assets must be original to your team or fully licensed. AI-assisted cleanup tools like denoising, interpolation and stabilisation are allowed.",
-      },
       {
         q: "Who owns the work we make?",
         a: "You do. By entering, you let us feature, stream and distribute your stage deliverables and final film on UMDb and UntoldCine.com for promotion, but ownership stays with your team.",
@@ -189,7 +185,7 @@ export const competitions: Competition[] = [
       "Vertical 9:16 only, minimum 1080x1920, 1 to 5 minutes. No horizontal reframes and no black bars.",
       "The brief is revealed only to registered teams at kick-off, August 21 at 8:00 PM ET. Your film must include the required elements in the brief and be made entirely inside the window, ending August 28 at 8:00 PM ET. Previously made films are not accepted. No late entries.",
       "Original audio, or music you own or are licensed to use. No copyrighted commercial music without a valid licence.",
-      "AI-generated footage is not permitted. AI tools for colour or stabilisation in post are allowed.",
+      "Footage must be original to the team or fully licensed.",
       "Community voting selects the finalists and a judges' panel selects the winner. Fake accounts, vote buying and bots mean immediate disqualification and permanent removal.",
       "By entering, the team lets us feature, stream and distribute the film on UMDb and UntoldCine.com for promotion. The team keeps ownership of the film.",
       "Employees of Untold Studios Corp. and their immediate family are not eligible.",
@@ -199,7 +195,7 @@ export const competitions: Competition[] = [
     votedNote: "Community voting picks the finalists. A judges' panel picks the winner.",
     faq: [
       { q: "Is it really free to enter?", a: "Yes. Your captain just needs Creator Pro if the team has more than three members, and that covers the whole team." },
-      { q: "What does a complete profile mean?", a: "A headshot, a bio, a demo reel uploaded to the platform, and at least one credit listed." },
+      { q: "What does a complete profile mean?", a: "A headshot, a bio, a demo reel uploaded to the creative hub, and at least one credit listed." },
       { q: "What format does my film have to be in?", a: "Vertical 9:16 only, minimum 1080x1920. No horizontal reframes and no black bars." },
       {
         q: "When does filming start and end?",
@@ -210,7 +206,6 @@ export const competitions: Competition[] = [
       { q: "How does voting work?", a: "Three rounds: all entries, then the top 1,000, then the top 25, then the top 5. Each round is 3 days, with one vote per account per round. A judges' panel picks the winner from the finalists." },
       { q: "How do I get more votes?", a: "Share your voting link everywhere: Instagram, TikTok, Facebook, X, anywhere. Every voter needs a free account, so ask your followers to register and vote." },
       { q: "Can I submit a film I already made?", a: "No. It must be created inside the competition window." },
-      { q: "Can I use AI?", a: "AI-generated footage is not permitted. AI tools for colour grading or stabilisation in post are allowed." },
       { q: "What happens if I miss the deadline?", a: "Your submission will not be accepted. Not one second late." },
       { q: "Who can enter?", a: "Any filmmaker 18+ with a complete profile. No geographic restrictions, open worldwide." },
       { q: "More questions?", a: "Email admin@untoldcine.com." },
@@ -233,7 +228,7 @@ export const competitions: Competition[] = [
       height: 1080,
     },
     body: [
-      "Every actor has a moment they've been waiting to perform. This is it. The Breakthrough Actor Showcase is the first ever acting competition on the platform, and the community decides everything.",
+      "Every actor has a moment they've been waiting to perform. This is it. The Breakthrough Actor Showcase is the first ever acting competition on the creative hub, and the community decides everything.",
       "Just actors, one script, and an audience ready to vote for the performance that moves them most. Every entrant performs the same official monologue. Same words. Different actors. The community votes on interpretation, presence and truth.",
       "Three stages cut from all entries to the Top 25 to the Final Five. The winner is decided by the people. First place wins $1,000 cash and the Breakthrough Actor of the Year title, permanently on their profile.",
       "Every entrant walks away with an Official Selection badge. A real credential, not a participation trophy. Two categories: Dramatic Monologue and Comedy Monologue. Free to enter and open to all actors worldwide.",
@@ -344,7 +339,7 @@ export const competitions: Competition[] = [
       { q: "Is it free to enter?", a: "Yes. Completely free, all three stages." },
       {
         q: "How do I enter?",
-        a: "Complete your profile with a headshot, bio, demo reel and at least one credit. Then open the Breakthrough Actor Showcase, select your category, access the official script, film your performance and upload your video directly through the platform.",
+        a: "Complete your profile with a headshot, bio, demo reel and at least one credit. Then open the Breakthrough Actor Showcase, select your category, access the official script, film your performance and upload your video directly through the creative hub.",
       },
       { q: "Do I write my own monologue?", a: "No. The official script is provided for each stage and every entrant performs the same one. The community votes on interpretation, not material." },
       { q: "How does advancement work?", a: "The top 25 most voted performances from Stage 1 advance to the Semi Finals. The top 5 most voted from the Semi Finals advance to the Final. All decided by community vote. No judges." },
@@ -356,7 +351,7 @@ export const competitions: Competition[] = [
         a: "Official Selection for every valid entrant, Shortlist for all 25 Semi Finalists, Finalist for the Final Five, and Breakthrough Actor of the Year for first place only. All badges are permanent on your profile.",
       },
       { q: "Do I need an Instagram account to enter?", a: "You needed to follow @umdb_ on Instagram before submissions closed. It was required for eligibility and for being featured and reposted." },
-      { q: "When were winners announced?", a: "July 5, 2026, on the platform and on @umdb_." },
+      { q: "When were winners announced?", a: "July 5, 2026, on the creative hub and on @umdb_." },
       { q: "How are prizes paid?", a: "Prize details are confirmed with winners directly after the announcement, using the contact information on their profile." },
       { q: "Can I enter if I am not in Canada?", a: "Yes. The competition is open to all actors aged 16 and over, wherever you are." },
       { q: "Who do I contact with a question?", a: "Email competitions@umdb.org and the team will get back to you within 24 hours." },

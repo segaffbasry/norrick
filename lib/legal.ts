@@ -1,5 +1,5 @@
 // Legal page content. DRAFT / PLACEHOLDER: structure follows a typical terms
-// and privacy policy for a talent platform, but the wording is not legal advice
+// and privacy policy for a talent creative hub, but the wording is not legal advice
 // and must be reviewed by counsel. Items in [brackets] need real values.
 
 export type Block =

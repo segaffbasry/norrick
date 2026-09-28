@@ -19,11 +19,7 @@ export default function PricingPage() {
         <div className="shell">
           <div className="mx-auto max-w-[88rem]">
             <div className="text-center">
-              <h1 className="text-[clamp(2.5rem,1.3rem+4.4vw,5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
-                {pricingHero.title[0]}
-                <br />
-                {pricingHero.title[1]}
-              </h1>
+              <h1 className="text-title font-semibold">{pricingHero.title}</h1>
               <p className="mx-auto mt-6 max-w-2xl text-lead text-muted">{pricingHero.body}</p>
             </div>
 
@@ -35,7 +31,7 @@ export default function PricingPage() {
               {summaryCards.map((c) => (
                 <li key={c.title}>
                   <Card className="flex h-full flex-col p-8">
-                    <h2 className="text-title">{c.title}</h2>
+                    <h2 className="text-heading">{c.title}</h2>
                     <p className="mt-4 text-lead text-copy">
                       {c.lead.map((part, i) => (
                         <span key={part.bold}>
@@ -74,7 +70,7 @@ export default function PricingPage() {
         <div className="shell">
           <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-card bg-primary p-8 text-primary-foreground md:flex-row md:items-center md:p-12">
             <div className="max-w-xl">
-              <h2 className="text-title">Hiring is free. Start today.</h2>
+              <h2 className="text-heading">Hiring is free. Start today.</h2>
               <p className="mt-3 text-lead opacity-80">
                 Post a role, search talent and message creatives at no cost.
               </p>

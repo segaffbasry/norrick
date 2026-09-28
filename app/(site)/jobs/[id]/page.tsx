@@ -140,8 +140,8 @@ export default async function JobPage({ params }: PageProps<"/jobs/[id]">) {
 
             <div className="py-6 text-center">
               <h2 className="text-[clamp(2rem,1.2rem+2.6vw,3.5rem)] leading-[1.05] tracking-[-0.03em]">
-                Join 1,000+ creatives
-                <br />
+                Join the creative hub
+                {" "}
                 and production teams
               </h2>
               <div className="mt-8 flex flex-wrap justify-center gap-3">

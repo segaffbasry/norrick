@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { partners } from "@/lib/data";
 import { heroFilm } from "@/lib/home";
 import { Film } from "@/components/home/Film";
 import { Wordmark } from "@/components/ui/Logo";
@@ -10,7 +9,7 @@ import { Wordmark } from "@/components/ui/Logo";
 export function AuthShell({ children }: { children: ReactNode }) {
   return (
     <main className="min-h-svh bg-surface">
-      <div className="px-4 pt-6 sm:px-9">
+      <div className="shell pt-6">
         <Link href="/" aria-label="Norrick, home" className="inline-flex text-primary">
           <Wordmark className="h-[22px] w-auto" />
         </Link>
@@ -28,19 +27,6 @@ export function AuthShell({ children }: { children: ReactNode }) {
               <p className="font-display text-[clamp(2.4rem,3.6vw,3.6rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.03em] [font-stretch:125%]">
                 Your chapter <span className="font-accent font-normal uppercase not-italic tracking-[0.01em] text-primary-light [font-stretch:100%]">starts here.</span>
               </p>
-              <p className="eyebrow mt-10 !text-white/60">In good company</p>
-              <ul className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-4">
-                {partners.map((p) => (
-                  <li key={p.name}>
-                    {p.logo ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={p.logo} alt={p.name} className="h-4 w-auto opacity-75 brightness-0 invert" />
-                    ) : (
-                      p.name
-                    )}
-                  </li>
-                ))}
-              </ul>
             </div>
           </aside>
         </div>

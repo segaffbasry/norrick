@@ -14,7 +14,8 @@
   box-shadow: none;
 }
 .inner { display: flex; height: 80px; align-items: center; gap: 24px; }
-.logo { flex-shrink: 0; color: var(--color-primary); }
+/* The logo hangs ~35px outside the content edge, never closer than 20px to the viewport. */
+.logo { flex-shrink: 0; margin-left: calc(-1 * clamp(0px, var(--site-gutter) - 20px, 35px)); color: var(--color-primary); }
 .header[data-tone="overlay"] .logo,
 .header[data-tone="dark"] .logo { color: white; }
 .header[data-tone="dark"] {

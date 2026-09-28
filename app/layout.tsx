@@ -33,19 +33,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Norrick",
   description:
-    "A creative home for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
+    "A creative hub for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
   applicationName: "Norrick",
   openGraph: {
-    title: "Welcome to Norrick. Your chapter starts here.",
+    title: "Your chapter starts here.",
     description:
-      "A creative home for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
+      "A creative hub for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Welcome to Norrick. Your chapter starts here.",
+    title: "Your chapter starts here.",
     description:
-      "A creative home for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
+      "A creative hub for filmmakers, actors, animators and crew. Bring your idea, find your people, and make something together.",
   },
 };
 

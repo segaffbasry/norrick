@@ -1,5 +1,7 @@
 "use client";
 
+import { ProjectCount } from "@/components/ui/ProjectCount";
+
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { roleLabel, type Talent } from "@/lib/data";
@@ -90,12 +92,7 @@ export function ProfileSheet({ talent, onClose }: { talent: Talent; onClose: () 
     `Placeholder: wrapped a collaboration this month and already looking for the next team.`,
     `Placeholder: behind the scenes from the last production room, and what I learned.`,
   ];
-  const counts = [
-    { value: talent.connections, label: "Connections" },
-    { value: talent.posts, label: "Posts" },
-    { value: talent.followers, label: "Followers" },
-    { value: talent.following, label: "Following" },
-  ];
+
 
   return createPortal(
     <div data-lenis-prevent className="fixed inset-0 z-[90]">
@@ -173,18 +170,13 @@ export function ProfileSheet({ talent, onClose }: { talent: Talent; onClose: () 
               </div>
             </div>
 
+            <ProjectCount count={talent.projectCount} />
+
             {/* Members-only region: progressive blur + sign-in wall */}
             <div className="relative mt-[clamp(1rem,3svh,2.5rem)] min-h-[15rem] flex-1">
               {/* Teaser content is clipped to the region, so the wall centers in the space that is left. */}
               <div aria-hidden inert className="absolute inset-0 select-none overflow-hidden">
-                <dl className="grid max-w-2xl grid-cols-2 gap-y-6 rounded-card border border-border p-6 sm:grid-cols-4">
-                  {counts.map((c) => (
-                    <div key={c.label} className="text-center">
-                      <dd className="font-display text-[1.75rem] font-medium leading-none tracking-[-0.02em]">{c.value}</dd>
-                      <dt className="mt-2 text-small text-muted">{c.label}</dt>
-                    </div>
-                  ))}
-                </dl>
+
 
                 <section className="mt-12 rounded-panel border border-border p-6 sm:p-8">
                   <h3 className="text-heading">Work for collaboration</h3>

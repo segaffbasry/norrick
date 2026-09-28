@@ -106,7 +106,7 @@ export function CollaborationStart({ initialIntent }: { initialIntent: Intent })
         <div className={s.go}>
           <Link href={href} className={s.pill}>
             {selected.cta}
-            {role !== "all" && <em> · {roles.find((r) => r.id === role)?.label}</em>} <span aria-hidden>↗</span>
+            {role !== "all" && <span> · {roles.find((r) => r.id === role)?.label}</span>} 
           </Link>
           <p className={s.note}>
             Preview: the directories behind this link show sample profiles and projects while member listings are prepared.

@@ -1,7 +1,7 @@
 // Partnerships (for productions, studios and schools). Written from what Norrick
 // actually offers today: free role posts, production rooms (see lib/pricing.ts),
 // community competitions, and Mark Wilhelm's real experience hiring on the
-// platform. No invented clients, figures or quotes.
+// creative hub. No invented clients, figures or quotes.
 
 export const partnerHero = {
   label: "For productions",
@@ -28,7 +28,7 @@ export const offers = [
 export const partnerFaq = [
   {
     q: "Who can partner with Norrick?",
-    a: "Productions, studios, film schools and brands that want to work with emerging filmmakers, actors, animators and crew.",
+    a: "Productions, studios, film schools and brands that want to work with filmmakers, actors, animators and crew.",
   },
   {
     q: "Does it cost anything to hire?",

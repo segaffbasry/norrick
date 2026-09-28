@@ -22,7 +22,7 @@ export function JobCard({ job }: { job: JobPost }) {
       <div className="mt-auto flex items-end justify-between gap-3 pt-6">
         <span className="truncate font-display text-body font-medium">{job.categories}</span>
         <span className="shrink-0 bg-primary-soft px-3 py-2 font-display text-body font-medium text-primary">
-          {job.openRoles} {job.openRoles === 1 ? "role" : "roles"}
+          Open roles
         </span>
       </div>
     </Card>

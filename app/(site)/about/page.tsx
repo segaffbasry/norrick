@@ -10,7 +10,7 @@ import c from "../collaborate/collaborate.module.css";
 
 export const metadata: Metadata = {
   title: "Our story | Norrick",
-  description: "From a pandemic passion project to a home for emerging creatives.",
+  description: "From a pandemic passion project to a home for creatives.",
 };
 
 // Our story. The words are the team's own (from umdb.org/about) and carry over
@@ -40,7 +40,7 @@ function StoryRow({
         <figcaption>{caption}</figcaption>
       </figure>
       <div className={s.storyCopy} style={{ direction: "ltr" }}>
-        <h2 className={s.wide} data-lines style={{ fontSize: "clamp(2.2rem, 4vw, 4.4rem)" }}>
+        <h2 className={s.wide} data-lines style={{ fontSize: "clamp(1.2rem, 2.2vw, 2.1rem)" }}>
           <span>{title}</span>
         </h2>
         <div data-rise="children">
@@ -62,7 +62,7 @@ export default function AboutPage() {
         <div className={c.topInner}>
           <p className={c.label}>Our story</p>
           <h1 id="about-title" className={c.wide}>
-            A new home for <em>emerging creatives.</em>
+            A new home for <span>creatives.</span>
           </h1>
           <p className={c.lede}>{aboutHero.body}</p>
         </div>
@@ -79,20 +79,15 @@ export default function AboutPage() {
       </StoryRow>
 
       <StoryRow title={empower.title} body={empower.body} image={empower.image} caption={empower.caption} flip>
-        <p className="font-accent not-italic uppercase tracking-[0.01em] text-foreground" style={{ fontSize: "clamp(1.4rem, 2vw, 1.9rem)", lineHeight: 1.25 }}>
-          {empower.stat.value} {empower.stat.label}
-        </p>
+
       </StoryRow>
 
       <section className="bg-surface px-[clamp(20px,5.5vw,96px)] pb-6 pt-24 md:pt-32" aria-labelledby="journey-title">
         <p className={`${s.label} text-primary`} data-rise>
           The journey
         </p>
-        <h2 id="journey-title" className={`${s.wide} mt-6 text-[clamp(2.6rem,6vw,6.4rem)]`} data-lines>
-          <span>Chapter</span>
-          <span>
-            by <em>chapter.</em>
-          </span>
+        <h2 id="journey-title" className={`${s.wide} mt-6 text-[clamp(1.3rem,2.5vw,2.5rem)]`} data-lines>
+          Our journey
         </h2>
         <div className="mt-12 md:mt-20">
           <ChapterShowcase chapters={chapters} />
@@ -104,10 +99,7 @@ export default function AboutPage() {
           In their own words
         </p>
         <h2 id="about-voices-title" className={s.wide} data-lines style={{ marginTop: 24 }}>
-          <span>The people</span>
-          <span>
-            make <em>the place.</em>
-          </span>
+          The people make the place
         </h2>
         <div className={s.quotes} data-rise="children">
           {testimonials.map((q) => (
@@ -135,15 +127,15 @@ export default function AboutPage() {
 
       <section data-header="dark" className="bg-ink px-[clamp(20px,5.5vw,96px)] py-28 text-center text-white md:py-40">
         <figure className="mx-auto max-w-5xl" data-rise>
-          <blockquote className="font-accent text-[clamp(2rem,4.4vw,4.4rem)] not-italic uppercase tracking-[0.01em] leading-[1.1]">“{teamQuote.quote}”</blockquote>
+          <blockquote className="font-accent text-[clamp(1.2rem,2.4vw,2.4rem)] not-italic uppercase tracking-[0.01em] leading-[1.1]">“{teamQuote.quote}”</blockquote>
           <figcaption className={`${s.label} mt-8 text-primary-light`}>{teamQuote.by}</figcaption>
         </figure>
         <div className="mt-14 flex flex-wrap justify-center gap-3">
           <Link href="/signup" className={s.pill}>
-            Join our journey <span aria-hidden>↗</span>
+            Join our journey 
           </Link>
           <Link href="/collaborate" className={`${s.pill} ${s.pillLight}`}>
-            Find your people <span aria-hidden>↗</span>
+            Find your people 
           </Link>
         </div>
       </section>

@@ -1,3 +1,4 @@
+import { ProjectCount } from "@/components/ui/ProjectCount";
 import { roleLabel, type Talent } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
@@ -5,7 +6,6 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 // Profile card (Contra "People" card): avatar, name and location, stats, category pills, headline, and a View profile button.
 // The picture is a flat grey placeholder.
 export function TalentCard({ talent, onView }: { talent: Talent; onView: () => void }) {
-  const stats = [...talent.stats, { value: talent.followers, label: "Followers" }];
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-card border border-border bg-background card-hover">
@@ -18,14 +18,7 @@ export function TalentCard({ talent, onView }: { talent: Talent; onView: () => v
           </div>
         </div>
 
-        <dl className="mt-5 grid grid-cols-4 gap-2">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <dd className="font-display text-body font-medium">{s.value}</dd>
-              <dt className="text-small text-muted">{s.label}</dt>
-            </div>
-          ))}
-        </dl>
+        <ProjectCount count={talent.projectCount} />
 
         <ul aria-label="Categories" className="mt-5 flex flex-wrap gap-2">
           {talent.roles.map((r) => (

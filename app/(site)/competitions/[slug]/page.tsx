@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps<"/competitions/[slu
 }
 
 const perks = [
-  "Join 1,000+ creatives like you",
+  "Meet creatives who share your craft",
   "Meet collaborators and productions, and get discovered",
   "Creating a profile is free, and so is hiring",
 ];
@@ -56,14 +56,7 @@ export default async function CompetitionPage({ params }: PageProps<"/competitio
                 <p className="mt-2 max-w-xl text-lead text-copy">{c.tagline}</p>
 
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-stretch">
-                  <dl className="grid flex-1 grid-cols-2 divide-x divide-border rounded-card border border-border sm:max-w-md">
-                    {c.stats.map((s) => (
-                      <div key={s.label} className="px-4 py-3.5">
-                        <dd className="font-display text-[1.5rem] font-medium leading-none tracking-[-0.02em]">{s.value}</dd>
-                        <dt className="mt-1.5 text-small text-muted">{s.label}</dt>
-                      </div>
-                    ))}
-                  </dl>
+
                   <Button href="/signup" className="sm:self-stretch !h-auto min-h-12 !border-ink !bg-ink px-8 hover:!border-foreground hover:!bg-foreground">
                     {c.cta}
                   </Button>

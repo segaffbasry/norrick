@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CollaborationStart, type Intent } from "@/components/sections/CollaborationStart";
 import { Film } from "@/components/home/Film";
-import { arc } from "@/lib/home";
+import { heroFilm } from "@/lib/home";
 import s from "./collaborate.module.css";
 
 export const metadata: Metadata = {
@@ -15,11 +15,11 @@ export default async function CollaboratePage({ searchParams }: PageProps<"/coll
   return (
     <main id="main-content" data-scenes className={s.page}>
       <section data-header="dark" className={s.top} aria-labelledby="collab-title">
-        <Film clip={arc[1].clip} eager className={s.film} />
+        <Film clip={heroFilm} eager className={s.film} />
         <div className={s.topInner}>
           <p className={s.label}>Collaborate</p>
           <h1 id="collab-title" className={s.wide}>
-            Find your <em>kind of people.</em>
+            Find your people
           </h1>
           <p className={s.lede}>Some chapters start with an idea. Others start with a conversation. Where does yours begin?</p>
         </div>

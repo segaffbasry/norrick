@@ -59,6 +59,7 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  video?: { src: string; poster?: string; captions?: string };
 }
 
 // Real members. The wording is drawn from what each person told the team, so
@@ -145,12 +146,8 @@ export interface Talent {
   /** Every category this person works in. The first is their main one. */
   roles: RoleId[];
   location: string;
-  followers: string;
-  /** Profile counts shown in the side sheet (UMDB profile: connections, posts, followers, following). */
-  connections: number;
-  posts: number;
-  following: number;
-  stats: { value: string; label: string }[];
+  /** Hide when absent or zero. Wire to the member’s actual project history. */
+  projectCount?: number;
 }
 
 // Sample locations and follower counts, cycled by talent number.
@@ -158,15 +155,11 @@ const locations = [
   "Gothenburg, Sweden", "Dallas, USA", "Lagos, Nigeria", "Toronto, Canada",
   "London, UK", "Jakarta, Indonesia", "Berlin, Germany", "Sao Paulo, Brazil",
 ];
-const followerCounts = ["241", "349", "128", "512", "96", "187", "403", "275"];
 
 function talent(
   n: number,
   roles: RoleId[],
   headline: string,
-  credits: string,
-  collabs: string,
-  rating: string,
 ): Talent {
   return {
     id: `ta${n}`,
@@ -175,42 +168,35 @@ function talent(
     persona: allRoles.find((r) => r.id === roles[0])!.craft,
     roles,
     location: locations[n % locations.length],
-    followers: followerCounts[n % followerCounts.length],
-    connections: (n * 7) % 40,
-    posts: 6 + ((n * 5) % 28),
-    following: (n * 3) % 25,
-    stats: [
-      { value: credits, label: "Credits" },
-      { value: collabs, label: "Collabs" },
-      { value: rating, label: "Rating" },
-    ],
+    // Explicit preview values only; no inferred member history.
+    projectCount: n === 1 ? 3 : n === 2 ? 1 : undefined,
   };
 }
 
 export const talents: Talent[] = [
-  talent(1, ["director", "screenwriter", "editor"], "director of short-form narrative", "24", "75x", "5.0"),
-  talent(2, ["actor", "voice-actor"], "character actor, stage and screen", "18", "13x", "4.9"),
-  talent(3, ["animator", "concept-artist"], "2D and stop-motion animator", "31", "87x", "5.0"),
-  talent(4, ["cinematographer", "gaffer", "editor"], "director of photography", "42", "60x", "4.8"),
-  talent(5, ["producer", "director"], "documentary producer", "12", "9x", "5.0"),
-  talent(6, ["voice-actor", "actor"], "voice actor, animation and games", "27", "22x", "4.9"),
-  talent(7, ["concept-artist", "3d-modeler"], "concept artist, characters and worlds", "22", "30x", "4.9"),
-  talent(8, ["3d-modeler", "surfacing-artist"], "hard-surface and character 3D modeler", "19", "17x", "4.8"),
-  talent(9, ["surfacing-artist", "lighting-artist"], "surfacing and texture artist", "16", "12x", "4.9"),
-  talent(10, ["animatic-editor", "editor", "animator"], "animatic editor and story reels", "14", "10x", "5.0"),
-  talent(11, ["lighting-artist", "compositor"], "lighting artist, look development", "25", "26x", "4.9"),
-  talent(12, ["compositor", "motion-designer"], "final render and compositing", "33", "44x", "5.0"),
-  talent(13, ["motion-designer", "animator"], "motion designer, titles and VFX", "20", "41x", "5.0"),
-  talent(14, ["screenwriter", "director"], "writer, drama and comedy", "15", "33x", "4.8"),
-  talent(15, ["editor", "colourist"], "picture editor, narrative and documentary", "29", "31x", "4.9"),
-  talent(16, ["colourist", "editor"], "colourist and finishing", "36", "28x", "4.9"),
-  talent(17, ["sound-designer", "composer"], "sound designer and re-recording mixer", "48", "52x", "5.0"),
-  talent(18, ["gaffer", "cinematographer"], "gaffer and lighting crew lead", "39", "35x", "4.8"),
-  talent(19, ["composer", "sound-designer"], "composer for film and animation", "21", "19x", "4.9"),
-  talent(20, ["production-designer", "concept-artist"], "production designer", "17", "14x", "4.7"),
-  talent(21, ["mocap-performer", "actor"], "motion-capture performer", "13", "11x", "4.8"),
-  talent(22, ["actor", "director"], "lead actor, commercial and indie", "22", "17x", "4.7"),
-  talent(23, ["animator", "3d-modeler"], "character and 3D animator", "17", "14x", "4.9"),
+  talent(1, ["director", "screenwriter", "editor"], "director of short-form narrative"),
+  talent(2, ["actor", "voice-actor"], "character actor, stage and screen"),
+  talent(3, ["animator", "concept-artist"], "2D and stop-motion animator"),
+  talent(4, ["cinematographer", "gaffer", "editor"], "director of photography"),
+  talent(5, ["producer", "director"], "documentary producer"),
+  talent(6, ["voice-actor", "actor"], "voice actor, animation and games"),
+  talent(7, ["concept-artist", "3d-modeler"], "concept artist, characters and worlds"),
+  talent(8, ["3d-modeler", "surfacing-artist"], "hard-surface and character 3D modeler"),
+  talent(9, ["surfacing-artist", "lighting-artist"], "surfacing and texture artist"),
+  talent(10, ["animatic-editor", "editor", "animator"], "animatic editor and story reels"),
+  talent(11, ["lighting-artist", "compositor"], "lighting artist, look development"),
+  talent(12, ["compositor", "motion-designer"], "final render and compositing"),
+  talent(13, ["motion-designer", "animator"], "motion designer, titles and VFX"),
+  talent(14, ["screenwriter", "director"], "writer, drama and comedy"),
+  talent(15, ["editor", "colourist"], "picture editor, narrative and documentary"),
+  talent(16, ["colourist", "editor"], "colourist and finishing"),
+  talent(17, ["sound-designer", "composer"], "sound designer and re-recording mixer"),
+  talent(18, ["gaffer", "cinematographer"], "gaffer and lighting crew lead"),
+  talent(19, ["composer", "sound-designer"], "composer for film and animation"),
+  talent(20, ["production-designer", "concept-artist"], "production designer"),
+  talent(21, ["mocap-performer", "actor"], "motion-capture performer"),
+  talent(22, ["actor", "director"], "lead actor, commercial and indie"),
+  talent(23, ["animator", "3d-modeler"], "character and 3D animator"),
 ];
 
 // --- Job posts ----------------------------------------------------------------
@@ -250,22 +236,19 @@ export const partners: Partner[] = [
   { name: "AWS", href: "https://aws.amazon.com", logo: "/partners/AWS.png" },
   { name: "MongoDB", href: "https://www.mongodb.com", logo: "/partners/MongoDB.png" },
   { name: "HubSpot", href: "https://www.hubspot.com", logo: "/partners/HubSpot.png" },
-  { name: "RevStar Consulting", href: "https://revstarconsulting.com", logo: "/partners/REV.png" },
 ];
 
 export const homeFaq = [
-  { q: "What is Norrick?", a: "A creative community for turning ideas into finished work. Norrick connects filmmakers, actors, animators and crew with the people they need to make something together." },
-  { q: "Do I need experience to join?", a: "You can be making your first project or bringing years of experience. There is room for every stage of the journey. Start with your interests, your craft, and what you want to make." },
-  { q: "Can I join without a project?", a: "Yes. You can look for collaborators, explore roles on other projects, or get to know the community while your next idea takes shape." },
+  { q: "What is Norrick?", a: "A creative hub for turning ideas into finished work. Norrick connects filmmakers, actors, animators and crew with the people they need to make something together." },
   { q: "Is it free to join?", a: "Creating a profile and applying to roles is free. Paid plans add tools for running productions and working with a larger team. You can compare them on the Pricing page." },
   { q: "Where should I start?", a: "Head to Collaborate and choose what brings you here: an idea to make, a project to join, or people to meet. We will point you toward the next step." },
 ];
 
 // "Meet Norrick": the second homepage section (Contra Labs "Meet the ecosystem"
-// layout). Two sides of the platform, from the founder's questionnaire.
+// layout). Two sides of the creative hub, from the founder's questionnaire.
 export const meet = {
   title: "Meet Norrick",
-  body: "The place where ideas that started in someone's head become finished work. We connect creatives with the people they need, and productions with talent that shows up and finishes.",
+  body: "Where ideas become finished work. Creatives find their people. Productions find talent that finishes.",
   cards: [
     {
       label: "For creatives",

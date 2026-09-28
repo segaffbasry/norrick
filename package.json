@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "brand:generate": "node scripts/generate-brand.mjs",
+    "predev": "npm run brand:generate",
+    "prebuild": "npm run brand:generate",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

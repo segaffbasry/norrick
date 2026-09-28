@@ -47,9 +47,7 @@ export function TalentDirectory({ initialRole = "all" }: { initialRole?: Categor
         </label>
       </div>
 
-      <p className="mt-6 text-small text-muted" aria-live="polite">
-        {items.length} {items.length === 1 ? "person" : "people"}
-      </p>
+
 
       {items.length === 0 ? (
         <p className="mt-4 rounded-card bg-surface p-8 text-center text-body text-muted">
