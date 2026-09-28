@@ -30,7 +30,7 @@ export function TalentCard({ talent, onView }: { talent: Talent; onView: () => v
 
         <p className="mb-5 mt-5 text-body text-copy">{talent.headline}</p>
 
-        <Button onClick={onView} className="mt-auto !h-11 w-full !border-ink !bg-ink hover:!border-foreground hover:!bg-foreground">
+        <Button onClick={onView} className="mt-auto !h-11 w-full !border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
           View profile
         </Button>
       </div>

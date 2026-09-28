@@ -34,7 +34,7 @@ export default async function TalentPage({ searchParams }: PageProps<"/talent">)
                 Post a job and let the right people come to you.
               </p>
             </div>
-            <Button href="/login" className="!border-background !bg-background !text-primary hover:!bg-primary-soft">
+            <Button href="/login" className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
               Post a job
             </Button>
           </div>

@@ -74,11 +74,11 @@ export function CompareTable() {
         onClick={toggle}
         className="mx-auto flex w-fit list-none items-center gap-2 py-2 [&::-webkit-details-marker]:hidden"
       >
-        <span className="eyebrow !text-primary">Compare features</span>
+        <span className="eyebrow !text-primary-light">Compare features</span>
         <svg
           viewBox="0 0 12 12"
           aria-hidden
-          className={`size-3 text-primary transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+          className={`size-3 text-primary-light transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           strokeWidth="1.8"
@@ -115,7 +115,7 @@ export function CompareTable() {
                   <th
                     colSpan={5}
                     scope="colgroup"
-                    className="eyebrow px-6 py-3 !text-primary"
+                    className="eyebrow px-6 py-3 !text-primary-light"
                   >
                     {group.title}
                   </th>
@@ -135,7 +135,7 @@ export function CompareTable() {
                       >
                         {v === true ? (
                           <>
-                            <Check className="mx-auto size-4 text-primary" />
+                            <Check className="mx-auto size-4 text-primary-light" />
                             <span className="sr-only">Included</span>
                           </>
                         ) : v === false ? (

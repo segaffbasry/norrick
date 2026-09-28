@@ -49,7 +49,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
 
       <Button
         onClick={() => setNotice(true)}
-        className="mt-8 w-full !border-ink !bg-ink !text-ink-foreground hover:!border-foreground hover:!bg-foreground"
+        className="mt-8 w-full !border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground"
       >
         <GoogleMark />
         Continue with Google
@@ -82,21 +82,21 @@ export function AuthForm({ mode }: { mode: Mode }) {
         <button
           type="submit"
           disabled={!valid}
-          className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-pill bg-primary font-display text-body font-semibold text-primary-foreground transition-colors hover:bg-foreground disabled:bg-surface disabled:text-muted"
+          className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-pill bg-primary font-display text-body font-semibold text-primary-foreground transition-colors hover:bg-foreground hover:text-background disabled:bg-surface disabled:text-muted"
         >
           {t.submit}
         </button>
       </form>
 
       {notice && (
-        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-primary">
+        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-primary-light">
           This is a design preview. Sign-in is not available yet, and no account has been created.
         </p>
       )}
 
       <p className="mt-8 text-center text-body text-copy">
         {t.switchText}{" "}
-        <Link href={t.switchHref} className="font-medium text-foreground hover:text-primary">
+        <Link href={t.switchHref} className="font-medium text-foreground hover:text-primary-light">
           {t.switchLabel}
         </Link>
       </p>

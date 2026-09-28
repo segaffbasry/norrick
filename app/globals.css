@@ -8,21 +8,22 @@
    ========================================================================== */
 
 @theme {
-  --color-background: #ffffff; /* white */
-  --color-surface: #f4f0fc; /* 6% purple on white: soft panels */
-  --color-foreground: #0b0a0d; /* black ink */
-  --color-copy: #38333f; /* black at ~80% on white */
-  --color-muted: #6c6676; /* black at ~60% on white */
-  --color-border: #e5e0ee; /* hairlines */
+  /* The site is dark throughout: black page, white type, purple accents. */
+  --color-background: #0b0a0d; /* near-black page */
+  --color-surface: #16131c; /* 6% purple on black: soft panels */
+  --color-foreground: #ffffff; /* white type */
+  --color-copy: #d9d5e0; /* white at ~85% on black */
+  --color-muted: #9d97a8; /* white at ~60% on black */
+  --color-border: #2b2633; /* hairlines */
   --color-primary: #6a21f2; /* Norrick purple */
   --color-primary-foreground: #ffffff;
-  --color-primary-soft: #efe7fe; /* 12% purple on white */
+  --color-primary-soft: #221640; /* 20% purple on black */
   --color-primary-light: #c3a6fb; /* purple lifted for use on black */
   --color-ink: #000000; /* logo black: cinematic sections, footer */
   --color-ink-foreground: #ffffff;
-  --color-tile: #efe9f9;
-  --color-placeholder: #e4e6eb; /* flat grey for image placeholders, never tinted */
-  --color-placeholder-ink: #a3a9b7; /* icon on placeholders */
+  --color-tile: #1b1624;
+  --color-placeholder: #1d1c21; /* flat grey for image placeholders, never tinted */
+  --color-placeholder-ink: #5f5d68; /* icon on placeholders */
 
   /* --- Type scale ----------------------------------------------------- */
   --text-hero: clamp(2.5rem, 1.9rem + 2.6vw, 3.625rem); /* 58px desktop */

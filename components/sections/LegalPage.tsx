@@ -42,7 +42,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
           <h1 className="text-[clamp(3rem,1.2rem+6.5vw,6rem)] font-normal leading-[1] tracking-[-0.04em]">{doc.title}</h1>
           <p className="mt-8 text-body text-muted">Last updated: {doc.updated}</p>
 
-          <p className="mt-6 rounded-card bg-primary-soft px-5 py-4 text-small text-primary">{draftNotice}</p>
+          <p className="mt-6 rounded-card bg-primary-soft px-5 py-4 text-small text-primary-light">{draftNotice}</p>
 
           <div className="mt-6">
             <Blocks blocks={doc.intro} />

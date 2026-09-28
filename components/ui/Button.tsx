@@ -26,14 +26,14 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "h-12 px-6 text-body font-semibold bg-primary text-primary-foreground border border-primary hover:bg-foreground hover:border-foreground",
+    "h-12 px-6 text-body font-semibold bg-primary text-primary-foreground border border-primary hover:bg-foreground hover:border-foreground hover:text-background",
   outline:
     "h-12 px-6 text-body font-semibold bg-background text-copy border border-copy hover:bg-surface",
   // Category chip (Contra filter row): 44px, 16px text, borderless; the active
   // chip gets a soft filled pill.
   chip:
     "h-11 px-4 text-body font-normal bg-transparent text-muted border border-transparent hover:text-foreground",
-  ghost: "text-body font-medium text-copy hover:text-primary",
+  ghost: "text-body font-medium text-copy hover:text-primary-light",
 };
 
 const chipActive = "!bg-surface !text-foreground !font-medium";

@@ -15,7 +15,7 @@
 }
 .inner { display: flex; height: 80px; align-items: center; gap: 24px; }
 /* The logo hangs ~35px outside the content edge, never closer than 20px to the viewport. */
-.logo { flex-shrink: 0; margin-left: calc(-1 * clamp(0px, var(--site-gutter) - 20px, 35px)); color: var(--color-primary); }
+.logo { flex-shrink: 0; margin-left: calc(-1 * clamp(0px, var(--site-gutter) - 20px, 35px)); color: var(--color-foreground); }
 .header[data-tone="overlay"] .logo,
 .header[data-tone="dark"] .logo { color: white; }
 .header[data-tone="dark"] {
@@ -27,7 +27,7 @@
 .navigation { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .navLink { padding: 12px; font-size: 16px; font-weight: 500; transition: opacity .2s; }
 .navLink:hover { opacity: .65; }
-.navLink[aria-current="page"] { color: var(--color-primary); }
+.navLink[aria-current="page"] { color: var(--color-primary-light); }
 .divider { height: 26px; width: 1px; margin-inline: 12px; background: currentColor; opacity: .22; }
 .join {
   display: inline-flex;
@@ -44,7 +44,7 @@
   font-weight: 500;
   transition: background-color .2s, border-color .2s;
 }
-.join:hover { background: var(--color-foreground); }
+.join:hover { background: var(--color-foreground); border-color: var(--color-foreground); color: var(--color-background); }
 .header[data-tone="overlay"] .join { background: transparent; border-color: rgb(255 255 255 / .65); }
 .header[data-tone="overlay"] .join:hover { background: white; border-color: white; color: var(--color-ink); }
 .menuButton { width: 48px; height: 48px; place-items: center; border: 1px solid currentColor; border-radius: 50%; }

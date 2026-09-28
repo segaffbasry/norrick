@@ -10,7 +10,7 @@ export function AuthShell({ children }: { children: ReactNode }) {
   return (
     <main className="min-h-svh bg-surface">
       <div className="shell pt-6">
-        <Link href="/" aria-label="Norrick, home" className="inline-flex text-primary">
+        <Link href="/" aria-label="Norrick, home" className="inline-flex text-primary-light">
           <Wordmark className="h-[22px] w-auto" />
         </Link>
       </div>

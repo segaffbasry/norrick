@@ -145,7 +145,7 @@ export default async function JobPage({ params }: PageProps<"/jobs/[id]">) {
                 and production teams
               </h2>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Button href="/login" className="!border-ink !bg-ink hover:!border-foreground hover:!bg-foreground">
+                <Button href="/login" className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                   Hire creatives
                 </Button>
                 <Button href="/signup" variant="outline" className="!border-border">

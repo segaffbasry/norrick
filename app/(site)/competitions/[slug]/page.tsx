@@ -57,7 +57,7 @@ export default async function CompetitionPage({ params }: PageProps<"/competitio
 
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-stretch">
 
-                  <Button href="/signup" className="sm:self-stretch !h-auto min-h-12 !border-ink !bg-ink px-8 hover:!border-foreground hover:!bg-foreground">
+                  <Button href="/signup" className="sm:self-stretch !h-auto min-h-12 !border-foreground !bg-foreground !text-background px-8 hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                     {c.cta}
                   </Button>
                 </div>
@@ -74,7 +74,7 @@ export default async function CompetitionPage({ params }: PageProps<"/competitio
               <ul className="mt-5 space-y-4">
                 {perks.map((perk) => (
                   <li key={perk} className="flex items-start gap-3 text-body text-copy">
-                    <Check className="mt-1 size-4 shrink-0 text-primary" />
+                    <Check className="mt-1 size-4 shrink-0 text-primary-light" />
                     {perk}
                   </li>
                 ))}

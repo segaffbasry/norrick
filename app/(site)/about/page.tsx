@@ -71,7 +71,7 @@ export default function AboutPage() {
       <StoryRow title={madeBy.title} body={madeBy.body} image={madeBy.image} caption={madeBy.caption}>
         <p>
           {madeBy.note}{" "}
-          <Link href={madeBy.href} className="font-medium text-primary underline underline-offset-4">
+          <Link href={madeBy.href} className="font-medium text-primary-light underline underline-offset-4">
             {madeBy.cta}
           </Link>
           .
@@ -83,7 +83,7 @@ export default function AboutPage() {
       </StoryRow>
 
       <section className="bg-surface px-[clamp(20px,5.5vw,96px)] pb-6 pt-24 md:pt-32" aria-labelledby="journey-title">
-        <p className={`${s.label} text-primary`} data-rise>
+        <p className={`${s.label} text-primary-light`} data-rise>
           The journey
         </p>
         <h2 id="journey-title" className={`${s.wide} mt-6 text-[clamp(1.3rem,2.5vw,2.5rem)]`} data-lines>

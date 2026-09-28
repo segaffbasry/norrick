@@ -34,7 +34,7 @@ export default function CompetitionsPage() {
                     </Badge>
                     <span className="mt-4 text-heading leading-tight">{c.title}</span>
                     <span className="mt-2 text-body text-muted">{c.summary}</span>
-                    <span className="mt-auto pt-6 font-display text-body font-medium text-primary">
+                    <span className="mt-auto pt-6 font-display text-body font-medium text-primary-light">
                       {c.cta} <span aria-hidden>&rarr;</span>
                     </span>
                   </span>

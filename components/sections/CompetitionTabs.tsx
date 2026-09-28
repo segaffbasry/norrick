@@ -111,7 +111,7 @@ export function CompetitionTabs({ competition: c }: { competition: Competition }
               <ol className="mt-3 grid gap-3 sm:grid-cols-2">
                 {howItWorks.map((step, i) => (
                   <li key={step.title} className="rounded-card bg-surface p-4">
-                    <span className="grid size-7 place-items-center rounded-pill bg-background font-display text-small font-semibold text-primary">
+                    <span className="grid size-7 place-items-center rounded-pill bg-background font-display text-small font-semibold text-primary-light">
                       {i + 1}
                     </span>
                     <p className="mt-3 font-display text-body font-medium">{step.title}</p>
@@ -165,7 +165,7 @@ export function CompetitionTabs({ competition: c }: { competition: Competition }
           <ol className="divide-y divide-border rounded-card border border-border">
             {c.stages.map((stage, i) => (
               <li key={stage} className="flex items-center gap-4 px-5 py-4 sm:px-6">
-                <span className="grid size-9 shrink-0 place-items-center rounded-pill bg-primary-soft font-display text-small font-semibold text-primary">
+                <span className="grid size-9 shrink-0 place-items-center rounded-pill bg-primary-soft font-display text-small font-semibold text-primary-light">
                   {i + 1}
                 </span>
                 <span className="font-display text-lead">{stage}</span>
@@ -208,7 +208,7 @@ function WinnerCard({ winner: w, featured }: { winner: Winner; featured: boolean
         />
       </div>
       <div className="flex flex-col p-5 sm:p-6">
-        <p className="eyebrow !text-primary">{w.place}</p>
+        <p className="eyebrow !text-primary-light">{w.place}</p>
         <h3 className={`mt-2 leading-tight tracking-[-0.02em] ${featured ? "text-title" : "text-[1.5rem]"}`}>{w.name}</h3>
         {(w.prize || w.location) && (
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -228,7 +228,7 @@ function WinnerCard({ winner: w, featured }: { winner: Winner; featured: boolean
 function ScriptCard({ script: sc }: { script: Script }) {
   return (
     <article className="rounded-card border border-border p-5 sm:p-6">
-      <p className="eyebrow !text-primary">{sc.category}</p>
+      <p className="eyebrow !text-primary-light">{sc.category}</p>
       <h3 className="mt-2 text-[1.5rem] leading-tight tracking-[-0.02em]">{sc.title}</h3>
       <p className="mt-3 rounded-card bg-surface px-4 py-3 text-small text-copy">{sc.note}</p>
       <div className="mt-5 space-y-1.5 text-body text-copy">

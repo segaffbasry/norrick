@@ -45,7 +45,7 @@ export default function PricingPage() {
                     <Button
                       href={c.cta.href}
                       variant={c.cta.main ? "primary" : "outline"}
-                      className={`mt-8 w-full ${c.cta.main ? "" : "!border-border !text-primary"}`}
+                      className={`mt-8 w-full ${c.cta.main ? "" : "!border-border !text-primary-light"}`}
                     >
                       {c.cta.label}
                       {!c.cta.main && <span aria-hidden>&rarr;</span>}
@@ -76,7 +76,7 @@ export default function PricingPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button href="/signup" className="!border-background !bg-background !text-primary hover:!bg-primary-soft">
+              <Button href="/signup" className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
                 Start hiring
               </Button>
               <Button href="/partnerships" variant="outline" className="!border-primary-foreground !bg-transparent !text-primary-foreground hover:!bg-primary-foreground/10">

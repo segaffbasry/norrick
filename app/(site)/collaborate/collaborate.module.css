@@ -148,7 +148,7 @@
   padding: 16px 22px;
   border: 1.5px solid var(--color-primary);
   border-radius: 24px 24px 6px 24px;
-  color: var(--color-primary);
+  color: var(--color-primary-light);
   font-size: clamp(17px, 1.4vw, 20px);
   font-weight: 500;
   cursor: pointer;
@@ -246,6 +246,7 @@
 }
 .pill:hover {
   background: var(--color-foreground);
+  color: var(--color-background);
 }
 .pill:hover > span {
   transform: rotate(45deg);

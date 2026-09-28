@@ -97,7 +97,7 @@ export function Header() {
       </div>
       <nav id="mobile-menu" aria-label="Mobile navigation" hidden={!open} data-lenis-prevent className="absolute inset-x-0 top-full h-[calc(100svh-80px)] overflow-auto border-t border-border bg-background px-6 py-10 text-foreground lg:hidden">
         <p className="eyebrow">Your next chapter</p>
-        {[...links, { label: "Browse talent", href: "/talent" }, { label: "Join the community", href: "/signup" }, { label: "Log in", href: "/login" }].map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="block border-b border-border py-5 font-display text-[clamp(1.4rem,6vw,2rem)] tracking-tight hover:text-primary">{link.label} </Link>)}
+        {[...links, { label: "Browse talent", href: "/talent" }, { label: "Join the community", href: "/signup" }, { label: "Log in", href: "/login" }].map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="block border-b border-border py-5 font-display text-[clamp(1.4rem,6vw,2rem)] tracking-tight hover:text-primary-light">{link.label} </Link>)}
       </nav>
     </header>
   );

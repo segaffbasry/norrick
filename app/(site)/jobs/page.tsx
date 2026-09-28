@@ -32,7 +32,7 @@ export default async function JobsPage({ searchParams }: PageProps<"/jobs">) {
               <h2 className="text-title">Hiring for your production?</h2>
               <p className="mt-2 text-lead opacity-80">Posting a role is free. Reach filmmakers, actors, animators and crew.</p>
             </div>
-            <Button href="/login" className="!border-background !bg-background !text-primary hover:!bg-primary-soft">
+            <Button href="/login" className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
               Post a job
             </Button>
           </div>

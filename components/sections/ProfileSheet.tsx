@@ -99,7 +99,7 @@ export function ProfileSheet({ talent, onClose }: { talent: Talent; onClose: () 
       <div
         aria-hidden
         onClick={() => setClosing(true)}
-        className={`absolute inset-0 bg-foreground/40 ${
+        className={`absolute inset-0 bg-ink/70 ${
           closing ? "animate-[fade-out_260ms_ease_forwards]" : "animate-[fade-in_260ms_ease_both]"
         }`}
       />
@@ -161,7 +161,7 @@ export function ProfileSheet({ talent, onClose }: { talent: Talent; onClose: () 
                 </ul>
               </div>
               <div className="flex shrink-0 gap-3">
-                <Button href="/login" className="!border-ink !bg-ink hover:!border-foreground hover:!bg-foreground">
+                <Button href="/login" className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                   Message
                 </Button>
                 <Button href="/login" variant="outline">
@@ -219,7 +219,7 @@ export function ProfileSheet({ talent, onClose }: { talent: Talent; onClose: () 
                     Connections, posts and collaboration work are visible to Norrick members. It&rsquo;s free to join.
                   </p>
                   <div className="mt-[clamp(0.75rem,2.5svh,1.5rem)] flex flex-wrap justify-center gap-3">
-                    <Button href="/login" className="!border-ink !bg-ink hover:!border-foreground hover:!bg-foreground">
+                    <Button href="/login" className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                       Sign in
                     </Button>
                     <Button href="/signup" variant="outline">

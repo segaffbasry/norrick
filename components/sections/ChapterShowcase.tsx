@@ -55,7 +55,7 @@ export function ChapterShowcase({ chapters }: { chapters: Chapter[] }) {
             )}
 
             <div className={`transition-opacity duration-500 ${i === active ? "lg:opacity-100" : "lg:opacity-30"}`}>
-              <span className="eyebrow !text-primary">{c.label}</span>
+              <span className="eyebrow !text-primary-light">{c.label}</span>
               <h3 className="mt-3 font-display text-[clamp(2rem,1.3rem+2.4vw,3.5rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.03em] [font-stretch:125%]">
                 {c.title}
               </h3>

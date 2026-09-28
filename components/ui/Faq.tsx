@@ -66,13 +66,13 @@ function FaqItem({ q, a }: { q: string; a: string }) {
     >
       <summary
         onClick={toggle}
-        className="flex cursor-pointer list-none items-center justify-between gap-6 py-7 font-display text-lead font-medium transition-colors hover:text-primary [&::-webkit-details-marker]:hidden"
+        className="flex cursor-pointer list-none items-center justify-between gap-6 py-7 font-display text-lead font-medium transition-colors hover:text-primary-light [&::-webkit-details-marker]:hidden"
       >
         {q}
         <svg
           viewBox="0 0 24 24"
           aria-hidden
-          className={`size-6 shrink-0 text-primary transition-transform duration-300 ease-out ${expanded ? "rotate-45" : ""}`}
+          className={`size-6 shrink-0 text-primary-light transition-transform duration-300 ease-out ${expanded ? "rotate-45" : ""}`}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"

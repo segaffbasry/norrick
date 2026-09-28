@@ -40,13 +40,13 @@ export function ApplyForm() {
       <button
         type="submit"
         disabled={!valid}
-        className="mt-5 inline-flex h-14 w-full items-center justify-center rounded-pill bg-ink font-display text-lead font-semibold text-ink-foreground transition-colors hover:bg-foreground disabled:bg-surface disabled:text-muted"
+        className="mt-5 inline-flex h-14 w-full items-center justify-center rounded-pill bg-foreground font-display text-lead font-semibold text-background transition-colors hover:bg-primary hover:text-primary-foreground disabled:bg-surface disabled:text-muted"
       >
         Start application
       </button>
 
       {notice && (
-        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-primary">
+        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-primary-light">
           Placeholder: applications are not connected yet.
         </p>
       )}
