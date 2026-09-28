@@ -1,0 +1,18 @@
+.link {
+  display: block;
+  margin-top: clamp(48px, 6vw, 88px);
+  border-radius: 4px;
+  color: #0b0b0d;
+  -webkit-tap-highlight-color: transparent;
+  outline-offset: 12px;
+}
+
+.wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.link:focus-visible {
+  outline: 1px solid #8e74aa;
+}

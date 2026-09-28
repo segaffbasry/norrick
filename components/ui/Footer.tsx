@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { partners } from "@/lib/data";
-import { Wordmark } from "@/components/ui/Logo";
+import { FooterWordmark } from "@/components/ui/FooterWordmark";
 
 const columns = [
   { title: "Find your people", links: [{ label: "Collaborate", href: "/collaborate" }, { label: "Browse talent", href: "/talent" }, { label: "Opportunities", href: "/jobs" }, { label: "Creative challenges", href: "/competitions" }] },
@@ -22,7 +22,7 @@ export function Footer() {
             <img src={partner.logo} alt={partner.name} className="h-3 w-auto brightness-0 invert sm:h-4" />
           ) : partner.name}</a>)}
         </div>
-        <Link href="/" aria-label="Norrick, home" className="mt-16 block text-primary-light"><Wordmark className="h-auto w-full" /></Link>
+        <FooterWordmark />
         <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-white/15 pt-6 text-[11px] text-primary-light"><span>© {new Date().getFullYear()} Norrick. Make your own story.</span><div className="flex gap-6"><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link></div></div>
       </div>
     </footer>
