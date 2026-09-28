@@ -77,7 +77,6 @@
 .bubbleText strong { font-weight: 600; }
 .bubbleRight .bubbleText { border-radius: 22px 22px 6px 22px; background: var(--color-primary); color: white; }
 .bubbleLink:hover .bubbleText { transform: translateY(-3px); }
-.emptyCalls { padding: 40px var(--gutter) 0; opacity: .7; }
 .heroNext { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 28px; padding: 40px var(--gutter) clamp(48px, 6vw, 88px); }
 .heroNext p { font-family: var(--font-display); font-size: clamp(22px, 2vw, 30px); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
 .heroNext small { display: block; margin-top: 8px; font-size: 14px; color: rgb(255 255 255 / .6); }
@@ -103,7 +102,7 @@
 .closingVideo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .knockout { display: none; }
 .closingContent { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 96px var(--gutter); background: linear-gradient(90deg, rgb(0 0 0 / .78), rgb(0 0 0 / .35)); }
-.closingContent > p { color: var(--color-primary-light); font-size: 15px; margin-bottom: 20px; }
+.closingContent > p { color: rgb(255 255 255 / .8); font-size: 15px; margin-bottom: 20px; }
 .closingContent .pill { margin-top: 28px; }
 
 /* ----------------------------------------------------------- WITH MOTION -- */
@@ -131,10 +130,10 @@
   .bubbleRight { left: calc(71% + 28px); justify-content: flex-start; }
   .bubbleLeft .bubbleLink { align-items: flex-end; }
   .bubbleRight .bubbleLink { align-items: flex-start; }
-  .emptyCalls { position: absolute; top: 45%; left: calc(71% + 28px); right: var(--gutter); padding: 0; }
   .heroNext { position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(28px, 5vh, 56px); flex-wrap: nowrap; padding: 0; }
-  :global(html.gsap-ready) .hero [data-hero-call],
-  :global(html.gsap-ready) .hero [data-hero-next] { opacity: 0; }
+  /* Rendered only once the calls load; the scroll timeline reveals them. */
+  .hero [data-hero-call],
+  .hero [data-hero-next] { opacity: 0; }
 
   .arcPin { position: sticky; top: 0; height: 100svh; min-height: 620px; overflow: hidden; }
   .arcHead { padding: clamp(104px, 14vh, 140px) var(--gutter) clamp(24px, 4vh, 40px); }
@@ -145,7 +144,7 @@
   .arcBand path { stroke-width: 2.5; stroke-linecap: round; }
   .arcBand [data-arc-line] { stroke: var(--color-primary-light); stroke-dasharray: 0 100000; }
   .arcGuide { stroke: rgb(255 255 255 / .08); stroke-dasharray: 2 8; }
-  .arcTip { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--color-primary-light); box-shadow: 0 0 0 6px rgb(195 166 251 / .18), 0 0 24px rgb(195 166 251 / .6); will-change: transform; }
+  .arcTip { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--color-primary-light); box-shadow: 0 0 0 6px rgb(106 33 242 / .25), 0 0 24px rgb(106 33 242 / .6); will-change: transform; }
   .arcList { flex: 1; min-height: 0; display: flex; gap: clamp(20px, 3vw, 48px); padding: 0 var(--gutter) clamp(32px, 5vh, 56px); }
   .chapter { flex: none; width: clamp(320px, 38vw, 620px); height: 100%; aspect-ratio: auto; }
 }

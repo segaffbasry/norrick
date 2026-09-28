@@ -9,7 +9,7 @@ export function JobCard({ job }: { job: JobPost }) {
     <Card as="article" variant="outline" className="card-hover relative flex h-full flex-col p-6 hover:border-primary">
       <span
         aria-hidden
-        className="grid size-14 place-items-center rounded-tag bg-primary-soft font-display text-lead font-semibold text-primary-light"
+        className="grid size-14 place-items-center rounded-tag bg-primary-soft font-display text-lead font-semibold text-foreground"
       >
         {job.company.charAt(0)}
       </span>
@@ -21,7 +21,7 @@ export function JobCard({ job }: { job: JobPost }) {
       <p className="mt-2 line-clamp-4 text-body text-muted">{job.blurb}</p>
       <div className="mt-auto flex items-end justify-between gap-3 pt-6">
         <span className="truncate font-display text-body font-medium">{job.categories}</span>
-        <span className="shrink-0 bg-primary-soft px-3 py-2 font-display text-body font-medium text-primary-light">
+        <span className="shrink-0 bg-primary-soft px-3 py-2 font-display text-body font-medium text-foreground">
           Open roles
         </span>
       </div>

@@ -165,7 +165,7 @@ export function CompetitionTabs({ competition: c }: { competition: Competition }
           <ol className="divide-y divide-border rounded-card border border-border">
             {c.stages.map((stage, i) => (
               <li key={stage} className="flex items-center gap-4 px-5 py-4 sm:px-6">
-                <span className="grid size-9 shrink-0 place-items-center rounded-pill bg-primary-soft font-display text-small font-semibold text-primary-light">
+                <span className="grid size-9 shrink-0 place-items-center rounded-pill bg-primary-soft font-display text-small font-semibold text-foreground">
                   {i + 1}
                 </span>
                 <span className="font-display text-lead">{stage}</span>

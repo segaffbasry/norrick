@@ -89,7 +89,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
       </form>
 
       {notice && (
-        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-primary-light">
+        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-foreground">
           This is a design preview. Sign-in is not available yet, and no account has been created.
         </p>
       )}

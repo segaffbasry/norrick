@@ -46,7 +46,7 @@ export function ApplyForm() {
       </button>
 
       {notice && (
-        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-primary-light">
+        <p role="status" className="mt-4 rounded-card bg-primary-soft p-3 text-small text-foreground">
           Placeholder: applications are not connected yet.
         </p>
       )}

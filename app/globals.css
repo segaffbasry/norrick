@@ -18,7 +18,7 @@
   --color-primary: #6a21f2; /* Norrick purple */
   --color-primary-foreground: #ffffff;
   --color-primary-soft: #221640; /* 20% purple on black */
-  --color-primary-light: #c3a6fb; /* purple lifted for use on black */
+  --color-primary-light: #6a21f2; /* accents on black: the same bright Norrick purple */
   --color-ink: #000000; /* logo black: cinematic sections, footer */
   --color-ink-foreground: #ffffff;
   --color-tile: #1b1624;

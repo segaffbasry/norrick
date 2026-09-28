@@ -13,7 +13,7 @@ const tones: Record<Tone, string> = {
   tag: "rounded-tag border border-surface bg-background px-1 py-1 text-[8px] leading-none font-semibold text-foreground",
   primary:
     "rounded-pill bg-primary px-3 py-1.5 text-eyebrow font-medium uppercase text-primary-foreground",
-  soft: "rounded-pill bg-primary-soft px-3 py-1.5 text-eyebrow font-medium uppercase text-primary-light",
+  soft: "rounded-pill bg-primary-soft px-3 py-1.5 text-eyebrow font-medium uppercase text-foreground",
 };
 
 export function Badge({ tone = "tag", className = "", children }: BadgeProps) {

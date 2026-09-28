@@ -30,6 +30,9 @@ export function HeroScene() {
   const root = useRef<HTMLElement>(null);
   const { calls, available, now } = useOpenCalls();
   const count = calls.length;
+  // The calls row appears once the feed has answered, so nothing flashes over
+  // the headline while the page is still loading.
+  const ready = available !== null;
 
   useEffect(() => {
     const el = root.current;
@@ -45,7 +48,7 @@ export function HeroScene() {
       const sizeCanvas = () => gsap.set(canvas, { width: stage.clientWidth, height: stage.clientHeight });
       sizeCanvas();
 
-      gsap.timeline({
+      const tl = gsap.timeline({
         defaults: { ease: "none" },
         scrollTrigger: {
           trigger: el,
@@ -70,19 +73,19 @@ export function HeroScene() {
           { x: () => -stage.clientWidth * inset / 100, y: () => -stage.clientHeight * 0.15, ease: "power2.inOut", duration: 0.34 },
           0.06,
         )
-        .fromTo(q("[data-hero-video]"), { scale: 1.2 }, { scale: 1, duration: 0.45 }, 0)
-        .fromTo(
-          q("[data-hero-call]"),
-          { opacity: 0, y: 70, scale: 0.8 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.12, stagger: 0.08, ease: "back.out(1.7)" },
-          0.32,
-        )
-        .fromTo(q("[data-hero-next]"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.1, ease: "power2.out" }, 0.8)
-        .to({}, { duration: 0.08 });
+        .fromTo(q("[data-hero-video]"), { scale: 1.2 }, { scale: 1, duration: 0.45 }, 0);
+      // The calls and the row under them only exist once the feed answers.
+      const calls = q("[data-hero-call]");
+      const next = q("[data-hero-next]");
+      if (calls.length) {
+        tl.fromTo(calls, { opacity: 0, y: 70, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.12, stagger: 0.08, ease: "back.out(1.7)" }, 0.32);
+      }
+      if (next.length) tl.fromTo(next, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.1, ease: "power2.out" }, 0.8);
+      tl.to({}, { duration: 0.08 }, 0.9);
     });
     return () => mm.revert();
     // Rebuild once the calls arrive, so every bubble joins the timeline.
-  }, [count]);
+  }, [count, ready]);
 
   return (
     <section ref={root} id="hero" data-header="dark" className={s.hero} aria-labelledby="hero-title">
@@ -104,7 +107,7 @@ export function HeroScene() {
         </div>
 
         <h2 id="calls-title" className="sr-only">Open calls on Collaborate</h2>
-        {count > 0 ? (
+        {count > 0 && (
           <ul className={s.thread} aria-labelledby="calls-title">
             {calls.map((call, i) => (
               <li
@@ -120,19 +123,15 @@ export function HeroScene() {
               </li>
             ))}
           </ul>
-        ) : (
-          <p className={s.emptyCalls} role="status">
-            {available === null ? "Looking for open calls…" : available ? "No open calls right now. Yours could be next." : "Explore open calls in the creative hub."}
-          </p>
         )}
 
-        <div data-hero-next className={s.heroNext}>
+        {ready && <div data-hero-next className={s.heroNext}>
           <div>
             <p>Find your people</p>
             <small>Projects on Norrick looking for collaborators.</small>
           </div>
           <a href="https://umdb.org/collaborate" className={s.pill}>All open calls</a>
-        </div>
+        </div>}
       </div>
     </section>
   );
