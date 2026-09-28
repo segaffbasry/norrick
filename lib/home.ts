@@ -2,9 +2,9 @@
 //
 // FOOTAGE: every clip in /public/video is licensed stock from Pexels (free to use,
 // no attribution required, see pexels.com/license), cut and compressed for the
-// web. The only exception is the animation in /public/media, which a Norrick
-// animator sent in for use on the site. Swap each `src` for approved community
-// footage as it arrives: same length (about 6s), silent, 16:9.
+// web. Community animation lives in /public/media, including Raquel
+// Hernandez’s submitted 3D artwork. Swap each `src` for approved community
+// footage as it arrives: silent, 16:9, with the submitted sequence preserved.
 //
 // CONVERSATION LINES: written to show the kind of thing members say. They carry
 // a craft, never a name, and are not presented as quotes from real people. The
@@ -88,8 +88,8 @@ export const crafts: { title: string; roles: string; clip: Clip; credit?: string
   {
     title: "Animators",
     roles: "Concept to final render",
-    clip: { src: "/media/animation-showcase.mp4", poster: "/media/animation-showcase.jpg" },
-    credit: "Animation by a Norrick member",
+    clip: { src: "/media/raquel-hernandez-3d.mp4", poster: "/media/raquel-hernandez-3d.jpg" },
+    credit: "Raquel Hernandez · 3D Artist",
   },
   { title: "Crew", roles: "Camera, lighting, sound, edit", clip: clip("craft-crew", 8089122) },
 ];

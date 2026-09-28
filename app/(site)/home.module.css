@@ -589,6 +589,8 @@
   z-index: 1;
   top: 16px;
   left: 16px;
+  max-width: calc(100% - 32px);
+  line-height: 1.4;
   padding: 6px 12px;
   border-radius: 999px;
   background: rgb(0 0 0 / 0.45);

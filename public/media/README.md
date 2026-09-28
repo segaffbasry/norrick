@@ -1,8 +1,11 @@
 # Norrick media
 
-- `animation-showcase.mp4` / `.jpg`: a short animation a Norrick animator sent
-  in for use on the site. Shown on the homepage as "Animation by a Norrick
-  member" (Animators tile).
+- `raquel-hernandez-3d.mp4` / `.jpg`: community clip supplied as `10 sec clip2.mp4`,
+  credited to **Raquel Hernandez · 3D Artist** on the homepage Animators tile.
+  Full submitted sequence (about 11 seconds), optimized to 1280×720 H.264,
+  silent for decorative autoplay, with a poster from the three-second mark.
+- `animation-showcase.mp4` / `.jpg`: earlier community animation retained as
+  an unused asset; replaced in the Animators tile by Raquel’s clip.
 - Everything in `/public/video` is licensed stock footage from Pexels (free to
   use, no attribution required: pexels.com/license), cut to ~6s, silent, and
   compressed for the web. Each clip's Pexels id is recorded in `lib/home.ts`.
