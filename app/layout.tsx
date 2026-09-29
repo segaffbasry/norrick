@@ -1,34 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Bebas_Neue, Inter } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
+import { fontVariables } from "./fonts";
 import { RouteProgress } from "@/components/ui/RouteProgress";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { Motion } from "@/components/ui/Motion";
+import { TypeSwitcher } from "@/components/ui/TypeSwitcher";
 
-// Display: Archivo with its width axis, so headlines can run wide and heavy like
-// the Norrick wordmark (Acumin Wide). Accent: Bebas Neue.
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin"],
-  axes: ["wdth"],
-  display: "swap",
-});
-
-const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas-neue",
-  subsets: ["latin"],
-  weight: "400",
-  style: "normal",
-  display: "swap",
-});
-
-// Body: clean and neutral.
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
+// Typeface preview: ?type=a|b|c switches the whole site to an option under
+// review and remembers it in this browser; ?type=off goes back. Runs before
+// first paint so the page never flashes the other type.
+const typePreview =
+  "(function(){try{var q=new URLSearchParams(location.search).get('type'),k='norrick-type';if(q==='off')localStorage.removeItem(k);else if(/^[abc]$/.test(q||''))localStorage.setItem(k,q);var t=localStorage.getItem(k);if(t)document.documentElement.setAttribute('data-type',t)}catch(e){}})();";
 
 export const metadata: Metadata = {
   title: "Norrick",
@@ -61,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${archivo.variable} ${bebasNeue.variable} ${inter.variable} h-full`}
+      className={`${fontVariables} h-full`}
     >
       <head>
         {/* Arms the soft appear animations (see components/ui/Motion.tsx) before first paint,
@@ -72,12 +55,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               "(function(){try{var d=document.documentElement;if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){d.classList.add('gsap-ready');setTimeout(function(){if(!d.hasAttribute('data-motion-init'))d.classList.remove('gsap-ready')},2500)}}catch(e){}})();",
           }}
         />
+        <script dangerouslySetInnerHTML={{ __html: typePreview }} />
       </head>
       <body className="flex min-h-full flex-col">
         <RouteProgress />
         <SmoothScroll />
         <Motion />
         {children}
+        <TypeSwitcher />
       </body>
     </html>
   );

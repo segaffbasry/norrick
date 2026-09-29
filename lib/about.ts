@@ -27,7 +27,7 @@ export const empower = {
 export const statement = {
   label: "Who we are",
   text: "From a pandemic passion project to a creative hub for people who make things. We built the creative hub we wish we had when we started.",
-  body: "Today, UMDb offers a streaming creative hub where creatives can showcase their work, alongside a growing community that helps you build projects from the start, with the support of your own peers.",
+  body: "Today, Norrick is a creative hub where creatives showcase their work, backed by a growing community that helps you build projects from the start, with people by your side the whole way.",
 };
 
 
@@ -61,19 +61,19 @@ export const chapters: Chapter[] = [
     label: "The pattern",
     title: "The Realization",
     image: { src: "/about/about-group.jpg", alt: "A group of creatives smiling around a table in a restaurant" },
-    body: "We traced the full journey of marketing a creative project. We interviewed countless creatives from universities, film schools, acting programs. The pattern was clear: most creatives graduate without a support system, without connections, without a roadmap. We went deeper. What if we could build the creative hub we wish we had when we started? That's how we arrived at UMDb.",
+    body: "We traced the full journey of marketing a creative project. We interviewed countless creatives from universities, film schools, acting programs. The pattern was clear: most creatives graduate without a support system, without connections, without a roadmap. We went deeper. What if we could build the creative hub we wish we had when we started? That's how we arrived at Norrick.",
   },
   {
     label: "Nov 2025",
     title: "The Launch",
     image: { src: "/about/about-studio.jpg", alt: "A smiling man in a suit seated for an interview on a film studio set" },
-    body: "In November 2025, we launched UMDb (UntoldCine Movie Database), a creative hub for creatives. The community grew through word of mouth.",
+    body: "In November 2025, we launched Norrick, a creative hub for creatives. The community grew through word of mouth.",
   },
   {
     label: "Now",
     title: "Today",
     image: { src: "/about/about2.jpg", alt: "Five members of the team laughing together for a group photo" },
-    body: "Today, UMDb offers a streaming creative hub where creatives can showcase their work, alongside a growing community that helps you build projects from the start, with the support of your own peers.",
+    body: "Today, Norrick is a creative hub where creatives showcase their work, backed by a growing community that helps you build projects from the start, with people by your side the whole way.",
   },
 ];
 

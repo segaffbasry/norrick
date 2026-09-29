@@ -74,10 +74,17 @@
 /* Fonts are loaded with next/font in app/layout.tsx. */
 :root { --site-gutter: clamp(20px, 5.5vw, 96px); }
 
+/* Typeface options under review (lib/type-options.ts). --type-scale evens out
+   how wide each face runs, so the hero line still fills one line. */
+html[data-type="a"] { --type-display: var(--font-bricolage); --type-body: var(--font-bricolage); --type-accent-weight: 800; --type-scale: 1.28; }
+html[data-type="b"] { --type-display: var(--font-syne); --type-body: var(--font-instrument-sans); --type-accent-weight: 800; --type-scale: .69; }
+html[data-type="c"] { --type-display: var(--font-big-shoulders); --type-body: var(--font-schibsted); --type-accent-weight: 900; --type-scale: 1.7; }
+
 @theme inline {
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-accent: var(--font-bebas-neue), "Arial Narrow", ui-sans-serif, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* --type-* are set only while previewing a typeface option (see below). */
+  --font-display: var(--type-display, var(--font-archivo)), ui-sans-serif, system-ui, sans-serif;
+  --font-accent: var(--type-display, var(--font-bebas-neue)), "Arial Narrow", ui-sans-serif, sans-serif;
+  --font-sans: var(--type-body, var(--font-inter)), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ==========================================================================

@@ -17,14 +17,15 @@ export const films = {
   },
 } satisfies Record<string, Clip>;
 
-export const heroFilm: Clip = films.raquel;
+/** Opens the site. The client picked Patrick's flyover as the most captivating. */
+export const heroFilm: Clip = films.patrick;
 /** Plays through the letters of the closing scene. */
-export const closingFilm: Clip = films.patrick;
+export const closingFilm: Clip = films.raquel;
 
-// The journey. Photos are from Norrick's own events and shoots (/public/about).
+// The journey, drawn as a diagram on the homepage (components/home/ArcScene.tsx).
 export const arc = [
-  { title: "Idea", body: "A story you want to tell. A world you want to build.", photo: "/about/about-event.jpg", alt: "A creative talking through an idea on stage at a Norrick screening" },
-  { title: "People", body: "Find collaborators who want to make it with you.", photo: "/about/about2.jpg", alt: "Five members of the Norrick community laughing together" },
-  { title: "Make", body: "Bring your craft. Work through it together.", photo: "/about/about-studio.jpg", alt: "An actor on set between a camera and a boom mic" },
-  { title: "Finished", body: "Put the work out into the world. Start your next chapter.", photo: "/about/about1.jpg", alt: "The cast of Love Series, a finished Norrick project" },
+  { title: "Idea", body: "A story you want to tell. A world you want to build." },
+  { title: "People", body: "Find collaborators who want to make it with you." },
+  { title: "Make", body: "Bring your craft. Work through it together." },
+  { title: "Finished", body: "Put the work out into the world. Start your next chapter." },
 ];
