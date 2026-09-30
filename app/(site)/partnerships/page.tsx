@@ -8,6 +8,7 @@ import { testimonials } from "@/lib/data";
 import { offers, partnerFaq, partnerHero } from "@/lib/partnerships";
 import s from "../home.module.css";
 import c from "../collaborate/collaborate.module.css";
+import { authLinks } from "@/lib/auth-links";
 
 export const metadata: Metadata = {
   title: "For productions | Norrick",
@@ -31,7 +32,7 @@ export default function PartnershipsPage() {
           </h1>
           <p className={c.lede}>{partnerHero.body}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/signup" className={s.pill}>
+            <Link href={authLinks.signUp} className={s.pill}>
               Post a role for free 
             </Link>
             <Link href="/pricing" className={`${s.pill} ${s.pillLight}`}>

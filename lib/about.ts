@@ -1,5 +1,6 @@
 // About page content. Story text is taken from umdb.org/about (the team's own
 // words). Visuals are placeholders until real stills exist.
+import { authLinks } from "@/lib/auth-links";
 
 export const aboutHero = {
   title: "A new home for creatives",
@@ -12,7 +13,7 @@ export const madeBy = {
   body: "In 2020, during the pandemic, we were actors trying to make it. We started with no connections and no credits, so we made our own project, and learned just how hard it is for creatives to break through.",
   note: "Want to join us?",
   cta: "Sign up",
-  href: "/signup",
+  href: authLinks.signUp,
   caption: "Love Series, 2020",
   image: { src: "/about/about1.jpg", alt: "The cast of Love Series, posed on a red sofa" },
 };

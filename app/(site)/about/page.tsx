@@ -7,6 +7,7 @@ import { ChapterShowcase } from "@/components/sections/ChapterShowcase";
 import { SceneFx } from "@/components/home/SceneFx";
 import s from "../home.module.css";
 import c from "../collaborate/collaborate.module.css";
+import { authLinks } from "@/lib/auth-links";
 
 export const metadata: Metadata = {
   title: "Our story | Norrick",
@@ -131,7 +132,7 @@ export default function AboutPage() {
           <figcaption className={`${s.label} mt-8 text-primary-light`}>{teamQuote.by}</figcaption>
         </figure>
         <div className="mt-14 flex flex-wrap justify-center gap-3">
-          <Link href="/signup" className={s.pill}>
+          <Link href={authLinks.signUp} className={s.pill}>
             Join our journey 
           </Link>
           <Link href="/collaborate" className={`${s.pill} ${s.pillLight}`}>

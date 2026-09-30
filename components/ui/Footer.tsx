@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { FooterWordmark } from "@/components/ui/FooterWordmark";
+import { authLinks } from "@/lib/auth-links";
 
 const columns = [
   { title: "Find your people", links: [{ label: "Collaborate", href: "/collaborate" }, { label: "Browse talent", href: "/talent" }, { label: "Opportunities", href: "/jobs" }, { label: "Creative challenges", href: "/competitions" }] },
-  { title: "Get to know us", links: [{ label: "Our story", href: "/about" }, { label: "Partnerships", href: "/partnerships" }, { label: "Pricing", href: "/pricing" }, { label: "Join Norrick", href: "/signup" }] },
+  { title: "Get to know us", links: [{ label: "Our story", href: "/about" }, { label: "Partnerships", href: "/partnerships" }, { label: "Pricing", href: "/pricing" }, { label: "Join Norrick", href: authLinks.signUp }] },
 ];
 
 export function Footer() {

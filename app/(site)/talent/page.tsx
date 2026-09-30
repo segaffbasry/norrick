@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { roles } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { TalentDirectory } from "@/components/sections/TalentDirectory";
+import { authLinks } from "@/lib/auth-links";
 
 export const metadata: Metadata = {
   title: "Browse talent | Norrick",
@@ -34,7 +35,7 @@ export default async function TalentPage({ searchParams }: PageProps<"/talent">)
                 Post a job and let the right people come to you.
               </p>
             </div>
-            <Button href="/login" className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
+            <Button href={authLinks.signIn} className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
               Post a job
             </Button>
           </div>

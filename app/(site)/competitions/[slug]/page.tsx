@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Check } from "@/components/ui/Icons";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { CompetitionTabs } from "@/components/sections/CompetitionTabs";
+import { authLinks } from "@/lib/auth-links";
 
 export function generateStaticParams() {
   return competitionSlugs.map((slug) => ({ slug }));
@@ -57,7 +58,7 @@ export default async function CompetitionPage({ params }: PageProps<"/competitio
 
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-stretch">
 
-                  <Button href="/signup" className="sm:self-stretch !h-auto min-h-12 !border-foreground !bg-foreground !text-background px-8 hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
+                  <Button href={authLinks.signUp} className="sm:self-stretch !h-auto min-h-12 !border-foreground !bg-foreground !text-background px-8 hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                     {c.cta}
                   </Button>
                 </div>
@@ -79,7 +80,7 @@ export default async function CompetitionPage({ params }: PageProps<"/competitio
                   </li>
                 ))}
               </ul>
-              <Button href="/signup" className="mt-6 w-full">
+              <Button href={authLinks.signUp} className="mt-6 w-full">
                 Sign up to join
               </Button>
             </div>

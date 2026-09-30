@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <main className="grid min-h-svh place-items-center px-6 py-16 text-center">
       <div className="max-w-xl">
-        <Link href="/" aria-label="Norrick, home" className="inline-flex text-primary-light">
+        <Link href="/" aria-label="Norrick, home" className="inline-flex text-foreground">
           <Wordmark className="h-6 w-auto" />
         </Link>
         <p className="eyebrow mt-12">404</p>

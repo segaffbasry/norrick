@@ -8,6 +8,7 @@ import { roleLabel, type Talent } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { Lock } from "@/components/ui/Icons";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { authLinks } from "@/lib/auth-links";
 
 const iconProps = { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true, className: "size-5" } as const;
 
@@ -161,10 +162,10 @@ export function ProfileSheet({ talent, onClose }: { talent: Talent; onClose: () 
                 </ul>
               </div>
               <div className="flex shrink-0 gap-3">
-                <Button href="/login" className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
+                <Button href={authLinks.signIn} className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                   Message
                 </Button>
-                <Button href="/login" variant="outline">
+                <Button href={authLinks.signIn} variant="outline">
                   Follow
                 </Button>
               </div>
@@ -219,10 +220,10 @@ export function ProfileSheet({ talent, onClose }: { talent: Talent; onClose: () 
                     Connections, posts and collaboration work are visible to Norrick members. It&rsquo;s free to join.
                   </p>
                   <div className="mt-[clamp(0.75rem,2.5svh,1.5rem)] flex flex-wrap justify-center gap-3">
-                    <Button href="/login" className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
+                    <Button href={authLinks.signIn} className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                       Sign in
                     </Button>
-                    <Button href="/signup" variant="outline">
+                    <Button href={authLinks.signUp} variant="outline">
                       Create free account
                     </Button>
                   </div>

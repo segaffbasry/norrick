@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { roles } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { JobDirectory } from "@/components/sections/JobDirectory";
+import { authLinks } from "@/lib/auth-links";
 
 export const metadata: Metadata = {
   title: "Find jobs | Norrick",
@@ -32,7 +33,7 @@ export default async function JobsPage({ searchParams }: PageProps<"/jobs">) {
               <h2 className="text-title">Hiring for your production?</h2>
               <p className="mt-2 text-lead opacity-80">Posting a role is free. Reach filmmakers, actors, animators and crew.</p>
             </div>
-            <Button href="/login" className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
+            <Button href={authLinks.signIn} className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
               Post a job
             </Button>
           </div>

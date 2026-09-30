@@ -5,6 +5,7 @@ import { ApplyForm } from "@/components/sections/ApplyForm";
 import { Button } from "@/components/ui/Button";
 import { Chat } from "@/components/ui/Icons";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { authLinks } from "@/lib/auth-links";
 
 export function generateStaticParams() {
   return jobIds.map((id) => ({ id }));
@@ -145,10 +146,10 @@ export default async function JobPage({ params }: PageProps<"/jobs/[id]">) {
                 and production teams
               </h2>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Button href="/login" className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
+                <Button href={authLinks.signIn} className="!border-foreground !bg-foreground !text-background hover:!border-primary hover:!bg-primary hover:!text-primary-foreground">
                   Hire creatives
                 </Button>
-                <Button href="/signup" variant="outline" className="!border-border">
+                <Button href={authLinks.signUp} variant="outline" className="!border-border">
                   Get hired
                 </Button>
               </div>

@@ -1,5 +1,6 @@
 // Competitions. Copy, dates, rules and cover art come from umdb.org/competitions.
 // Judges are announced by the team; none are listed until they are confirmed.
+import { authLinks } from "@/lib/auth-links";
 
 export interface Competition {
   slug: string;
@@ -370,6 +371,6 @@ export const competitionsSection = {
     title: "Hiring for your next production?",
     body: "Posting a role is free. Creatives apply directly.",
     cta: "Post a job for free",
-    href: "/login",
+    href: authLinks.signIn,
   },
 };

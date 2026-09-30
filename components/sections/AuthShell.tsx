@@ -10,7 +10,7 @@ export function AuthShell({ children }: { children: ReactNode }) {
   return (
     <main className="min-h-svh bg-surface">
       <div className="shell pt-6">
-        <Link href="/" aria-label="Norrick, home" className="inline-flex text-primary-light">
+        <Link href="/" aria-label="Norrick, home" className="inline-flex text-foreground">
           <Wordmark className="h-[22px] w-auto" />
         </Link>
       </div>
@@ -22,7 +22,7 @@ export function AuthShell({ children }: { children: ReactNode }) {
           <aside aria-label="Norrick" className="relative isolate hidden min-h-[36rem] flex-col justify-between overflow-hidden bg-ink p-12 text-white md:flex">
             <Film clip={heroFilm} eager className="absolute inset-0 -z-10 size-full object-cover opacity-70" />
             <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/40 to-black/30" />
-            <p className="eyebrow !text-primary-light">Welcome to Norrick</p>
+            <span aria-hidden />
             <div>
               <p className="font-display text-[clamp(2.4rem,3.6vw,3.6rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.03em] [font-stretch:125%]">
                 Your chapter <span className="font-accent font-normal uppercase not-italic tracking-[0.01em] text-primary-light [font-stretch:100%]">starts here.</span>

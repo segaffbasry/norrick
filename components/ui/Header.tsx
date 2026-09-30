@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Wordmark } from "@/components/ui/Logo";
 import styles from "./Header.module.css";
+import { authLinks } from "@/lib/auth-links";
 
 const links = [
   { label: "Collaborate", href: "/collaborate" },
@@ -88,8 +89,8 @@ export function Header() {
             {links.map((link) => <Link key={link.href} href={link.href} aria-current={pathname.startsWith(link.href) ? "page" : undefined} className={styles.navLink}>{link.label}</Link>)}
           </nav>
           <span aria-hidden className={styles.divider} />
-          <Link href="/login" className={`${styles.navLink} hidden sm:block`}>Log in</Link>
-          <Link href="/signup" className={styles.join}>Join Norrick </Link>
+          <Link href={authLinks.signIn} className={`${styles.navLink} hidden sm:block`}>Log in</Link>
+          <Link href={authLinks.signUp} className={styles.join}>Join Norrick </Link>
           <button ref={toggle} type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)} className={`${styles.menuButton} lg:hidden`}>
             <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>{open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}</svg>
           </button>
@@ -97,7 +98,7 @@ export function Header() {
       </div>
       <nav id="mobile-menu" aria-label="Mobile navigation" hidden={!open} data-lenis-prevent className="absolute inset-x-0 top-full h-[calc(100svh-80px)] overflow-auto border-t border-border bg-background px-6 py-10 text-foreground lg:hidden">
         <p className="eyebrow">Your next chapter</p>
-        {[...links, { label: "Browse talent", href: "/talent" }, { label: "Join the community", href: "/signup" }, { label: "Log in", href: "/login" }].map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="block border-b border-border py-5 font-display text-[clamp(1.4rem,6vw,2rem)] tracking-tight hover:text-primary-light">{link.label} </Link>)}
+        {[...links, { label: "Browse talent", href: "/talent" }, { label: "Join the community", href: authLinks.signUp }, { label: "Log in", href: authLinks.signIn }].map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="block border-b border-border py-5 font-display text-[clamp(1.4rem,6vw,2rem)] tracking-tight hover:text-primary-light">{link.label} </Link>)}
       </nav>
     </header>
   );

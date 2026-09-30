@@ -6,6 +6,7 @@ import { CompareTable } from "@/components/sections/CompareTable";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { PricingPlans } from "@/components/sections/PricingPlans";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { authLinks } from "@/lib/auth-links";
 
 export const metadata: Metadata = {
   title: "Pricing | Norrick",
@@ -76,7 +77,7 @@ export default function PricingPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button href="/signup" className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
+              <Button href={authLinks.signUp} className="!border-background !bg-background !text-primary-light hover:!bg-primary-soft">
                 Start hiring
               </Button>
               <Button href="/partnerships" variant="outline" className="!border-primary-foreground !bg-transparent !text-primary-foreground hover:!bg-primary-foreground/10">
