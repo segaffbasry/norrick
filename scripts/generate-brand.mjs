@@ -12,8 +12,10 @@ for (const [name, art] of Object.entries({wordmark:brand.wordmark, mark:brand.ma
     await writeFile(new URL(`public/brand/norrick-${name}-${color}.svg`, root), svg(art, fill));
   }
 }
-const scale = 38 / brand.mark.width;
-const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${brand.purple}"/><g fill="white" transform="translate(13 ${(64-brand.mark.height*scale)/2}) scale(${scale})">${paths(brand.mark)}</g></svg>`;
+// The N, fitted inside a 34px box and centred on a purple rounded square.
+const scale = 34 / Math.max(brand.mark.width, brand.mark.height);
+const [w, h] = [brand.mark.width * scale, brand.mark.height * scale];
+const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${brand.purple}"/><g fill="white" transform="translate(${(64 - w) / 2} ${(64 - h) / 2}) scale(${scale})">${paths(brand.mark)}</g></svg>`;
 await writeFile(new URL("app/icon.svg", root), icon);
 await sharp(Buffer.from(icon)).resize(180,180).png().toFile(new URL("app/apple-icon.png", root).pathname);
 const png = await sharp(Buffer.from(icon)).resize(32,32).png().toBuffer();
