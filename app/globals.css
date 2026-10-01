@@ -248,6 +248,13 @@ html[data-type="c"] { --type-display: var(--font-big-shoulders); --type-body: va
   }
 }
 
+/* Production room: a short confirmation that rises, waits, and fades. */
+@keyframes toast {
+  0% { opacity: 0; transform: translate(-50%, 12px); }
+  10%, 80% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, 0); }
+}
+
 /* Soft appear animations.
    1) The first screen (the homepage hero and each page's first section) uses a
       pure-CSS entrance, so it starts on first paint and never waits for
