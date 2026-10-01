@@ -1,16 +1,26 @@
+/* Frosted glass: the page shows through the bar, blurred and slightly dimmed,
+   so footage and colour carry on under it instead of a flat black band. */
 .header {
   position: sticky;
   top: 0;
   z-index: 50;
   color: var(--color-foreground);
-  background: var(--color-background);
-  box-shadow: 0 1px 0 var(--color-border);
-  transition: background-color .25s, color .25s, box-shadow .25s;
+  background: rgb(11 10 13 / 0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.08);
+  transition: background-color .35s, color .25s, box-shadow .35s, backdrop-filter .35s, -webkit-backdrop-filter .35s;
+}
+/* Browsers without backdrop blur get a near-solid bar so text stays readable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .header { background: rgb(11 10 13 / 0.94); }
 }
 .overHero { margin-bottom: -80px; }
 .header[data-tone="overlay"] {
   color: white;
   background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   box-shadow: none;
 }
 .inner { display: flex; height: 80px; align-items: center; gap: 24px; }
@@ -20,8 +30,7 @@
 .header[data-tone="dark"] .logo { color: white; }
 .header[data-tone="dark"] {
   color: white;
-  background: #000;
-  box-shadow: 0 1px 0 rgb(255 255 255 / .1);
+  background: rgb(0 0 0 / 0.45);
 }
 .header[data-tone="dark"] .join:hover { background: white; color: var(--color-ink); }
 .navigation { margin-left: auto; display: flex; align-items: center; gap: 8px; }
